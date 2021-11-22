@@ -26,4 +26,4 @@ My name is Francis Wibisono, a Third Year Student at Faculty of Computer Science
 ## Technology
 
 ![VirtualBox](https://img.shields.io/badge/Tech-Virtualbox-informational?style=for-the-badge&logo=VirtualBox)
-
+![Postgres](https://img.shields.io/badge/Tech-PostgreSQL-informational?style=for-the-badge&logo=Postgresql)
