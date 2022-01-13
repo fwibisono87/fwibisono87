@@ -11,6 +11,7 @@ My name is Francis Wibisono, a Third Year Student at Faculty of Computer Science
 ## Frameworks
 
 ![Tailwind](https://img.shields.io/badge/Framework-Tailwind-informational?style=for-the-badge&logo=TailwindCSS)
+![Tailwind](https://img.shields.io/badge/Framework-Tailwind-informational?style=for-the-badge&logo=SvelteJS)
 ![Vue](https://img.shields.io/badge/Framework-Vue.js-informational?style=for-the-badge&logo=vue.js)
 ![Vuetify](https://img.shields.io/badge/Framework-Vuetify-informational?style=for-the-badge&logo=vuetify)
 ![Nuxt](https://img.shields.io/badge/Framework-Nuxt.js-informational?style=for-the-badge&logo=nuxt.js)
