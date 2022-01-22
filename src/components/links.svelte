@@ -1,5 +1,6 @@
 <script>
 	export let direction = 'flex-row';
+	export let size = '6';
 	const links = [
 		{
 			name: 'Email',
@@ -30,10 +31,10 @@
 </script>
 
 <template>
-	<div class="flex {direction} gap-4">
+	<div class="flex {direction} gap-4 justify-evenly">
 		{#each links as link}
 			<a href={link.link}>
-				<img src={link.icon} class="w-6 h-6" />
+				<img src={link.icon} class="w-{size} h-{size}" />
 			</a>
 		{/each}
 	</div>
