@@ -1,0 +1,40 @@
+<script>
+	export let direction = 'flex-row';
+	const links = [
+		{
+			name: 'Email',
+			icon: '/img/email.svg',
+			link: 'mailto:fws8787@gmail.com'
+		},
+		{
+			name: 'Instagram',
+			icon: '/img/instagram.svg',
+			link: 'https://www.instagram.com/fwibisono87'
+		},
+		{
+			name: 'Gitlab',
+			icon: '/img/gitlab.svg',
+			link: 'https://gitlab.com/fwibisono87'
+		},
+		{
+			name: 'Github',
+			icon: '/img/github.svg',
+			link: 'https://github.com/fwibisono87'
+		},
+		{
+			name: 'LinkedIn',
+			icon: '/img/linkedin.svg',
+			link: 'https://www.linkedin.com/in/francis-wibisono/'
+		}
+	];
+</script>
+
+<template>
+	<div class="flex {direction} gap-4">
+		{#each links as link}
+			<a href={link.link}>
+				<img src={link.icon} class="w-6 h-6" />
+			</a>
+		{/each}
+	</div>
+</template>
