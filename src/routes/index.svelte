@@ -1,5 +1,4 @@
 <script>
-	import Links from '../components/links.svelte';
 	import Base from '../components/base.svelte';
 </script>
 
