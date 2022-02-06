@@ -1,7 +1,8 @@
 <script>
 	import { page } from '$app/stores';
-import Header from './header.svelte';
-import Hero from './hero.svelte';
+	import Experience from './experience.svelte';
+	import Header from './header.svelte';
+	import Hero from './hero.svelte';
 	import Links from './links.svelte';
 	const navLink = [
 		{
@@ -27,8 +28,8 @@ import Hero from './hero.svelte';
 
 <template>
 	<div class="w-full min-h-screen bg-background font-noto">
-		<Header></Header>	
-		<Hero></Hero>
+		<Header />
+		<Hero />
+		<Experience />
 	</div>
 </template>
-
