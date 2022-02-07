@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aa315fea-e7de-4cba-b33d-121c411fffb4/deploy-status)](https://app.netlify.com/sites/affectionate-euclid-97d63a/deploys)
+
 # Hello!
 
 My name is Francis Wibisono, a Third Year Student at Faculty of Computer Science, Universitas Indonesia. I am currently working as a Frontend Web Developer and Teaching assistant for Operating Systems. Nice to meet you!
