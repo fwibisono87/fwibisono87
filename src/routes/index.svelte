@@ -27,8 +27,8 @@
 				</div>
 			</div>
 		</div>
-        <div class="flex flex-row">
-            <h2 class="font-extralight text-9xl">education</h2>
-        </div>
+		<div class="flex flex-row">
+			<h2 class="font-extralight text-9xl">education</h2>
+		</div>
 	</div>
 </Base>

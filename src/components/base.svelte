@@ -1,35 +1,16 @@
 <script>
-	import { page } from '$app/stores';
 	import Experience from './experience.svelte';
 	import Header from './header.svelte';
 	import Hero from './hero.svelte';
-	import Links from './links.svelte';
-	const navLink = [
-		{
-			name: 'Education',
-			link: '/'
-		},
-		{
-			name: 'Experience',
-			link: '/experience'
-		},
-		{
-			name: 'Projects',
-			link: '/projects'
-		},
-		{
-			name: 'Skills',
-			link: '/skills'
-		}
-	];
+	import Projects from './projects.svelte';
 	let main;
-	export let additionalClass;
 </script>
 
 <template>
-	<div class="w-full min-h-screen bg-background font-noto">
+	<div class="w-full min-h-screen bg-background font-noto pb-2">
 		<Header />
 		<Hero />
 		<Experience />
+		<Projects />
 	</div>
 </template>
