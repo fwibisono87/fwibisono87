@@ -5,18 +5,18 @@
 
 <template>
 	<div
-		class="flex flex-col lg:flex-row text-white px-24"
+		class="flex flex-col xl:flex-row text-white px-24"
 		style="background-image: url({background}); background-repeat: no-repeat; background-position: center bottom; background-size: 100%"
 	>
-		<div class="flex flex-col lg:w-[60%] my-auto">
-			<h1 class="font-semibold text-5xl mt-4 sm:text-7xl text-center lg:text-left">
-				Hello! <br class="hidden lg:block" />I'm Francis Wibisono
+		<div class="flex flex-col xl:w-[60%] my-auto">
+			<h1 class="font-semibold text-5xl mt-4 sm:text-7xl text-center xl:text-left">
+				Hello! <br class="hidden xl:block" />I'm Francis Wibisono
 			</h1>
-			<span class="font-medium mt-7 text-center lg:text-left">
+			<span class="font-medium mt-7 text-center xl:text-left">
 				Computer Science Undergraduate Student Faculty of Computer Science, Universitas Indonesia
 			</span>
 		</div>
-		<Links addClass="lg:hidden mt-8" direction="flex-row" />
+		<Links addClass="xl:hidden mt-8" direction="flex-row" />
 		<div class="mx-auto">
 			<section>
 				<img
@@ -25,6 +25,6 @@
 				/>
 			</section>
 		</div>
-		<Links addClass="hidden lg:flex" direction="flex-col" />
+		<Links addClass="hidden xl:flex" direction="flex-col" />
 	</div>
 </template>

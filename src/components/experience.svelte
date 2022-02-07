@@ -52,10 +52,10 @@
 </script>
 
 <template>
-	<div class="flex flex-col lg:flex-row text-white mx-8 mt-16">
-		<h2 class="text-4xl font-semibold mb-2 lg:w-48" id="experience">Experience</h2>
-		<hr class="-mx-3 lg:hidden" />
-		<div class="flex flex-col mt-6 lg:mt-0">
+	<div class="flex flex-col xl:flex-row text-white mx-8 mt-16 justify-center">
+		<h2 class="text-4xl font-semibold mb-2 xl:w-48" id="experience">Experience</h2>
+		<hr class="-mx-3 xl:hidden" />
+		<div class="flex flex-col mt-6 xl:mt-0">
 			{#each expList as exp}
 				<ExperienceCard
 					startDate={exp.startDate}
@@ -66,11 +66,11 @@
 				/>
 			{/each}
 		</div>
-		<h2 class="text-4xl font-semibold mb-2 mt-7 lg:mt-0 lg:ml-7 lg:w-48" id="education">
+		<h2 class="text-4xl font-semibold mb-2 mt-7 xl:mt-0 xl:ml-7 xl:w-48" id="education">
 			Education
 		</h2>
-		<hr class="-mx-3 lg:hidden" />
-		<div class="flex flex-col mt-6 lg:mt-0">
+		<hr class="-mx-3 xl:hidden" />
+		<div class="flex flex-col mt-6 xl:mt-0">
 			{#each eduList as exp}
 				<ExperienceCard
 					startDate={exp.startDate}

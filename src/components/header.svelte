@@ -8,7 +8,7 @@
 			title: 'Experience',
 			link: 'experience'
 		},
-        {
+		{
 			title: 'Education',
 			link: 'education'
 		},
@@ -18,7 +18,7 @@
 		},
 		{
 			title: 'Skills',
-			link: ''
+			link: 'skills'
 		}
 	];
 
