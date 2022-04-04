@@ -1,6 +1,6 @@
 <script>
 	import Links from './links.svelte';
-	const background = 'https://s3.ap-northeast-1.wasabisys.com/fws-public/website/blobs.png';
+	const background = 'https://is3.cloudhost.id/francis/public/website/blobs.png';
 </script>
 
 <template>
@@ -20,7 +20,7 @@
 		<div class="mx-auto">
 			<section>
 				<img
-					src="https://s3.ap-northeast-1.wasabisys.com/fws-public/website/francis1.jpg"
+					src="https://is3.cloudhost.id/francis/public/website/francis1.jpg"
 					alt="Francis"
 				/>
 			</section>
