@@ -1,6 +1,6 @@
 <script>
 	const buzzwords = ['Blazing Fast', 'Modern', 'Reactive', 'Beautiful', 'Functional', 'Serverless'];
-	let buzzword = '';
+	let buzzword = buzzwords[0];
 	let buzzwordSemaphore = true;
 	let previousBuzzwordIndex = -1;
 
