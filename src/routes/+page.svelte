@@ -1,7 +1,10 @@
 <script lang="ts">
 	import Buzzword from '../components/buzzword.svelte';
+	import Tech from '../components/tech.svelte';
 	import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded';
 	import { fade } from 'svelte/transition';
+
+	import technology from '/src/tech.json';
 
 	let scrollY: number = 0;
 </script>
@@ -30,15 +33,17 @@
 {#if scrollY !== 0}
 	<div
 		class="mx-auto -mt-60 lg:-mt-80 w-full lg:w-[80vw]"
-		in:fade={{ delay: 500, duration: 200 }}
+		in:fade={{ delay: 350, duration: 200 }}
 		out:fade
 	>
 		<div class="flex flex-col">
 			<h3 class="text-2xl font-semibold text-dove text-center lg:text-left">Technologies</h3>
-			<div class="grid grid-cols-1 lg:grid-cols-3 justify-around text-center gap-y-8 mt-6 lg:mt-2">
-				<span in:fade={{ delay: 800, duration: 200 }} out:fade>ini satu</span>
-				<span in:fade={{ delay: 1100, duration: 200 }} out:fade>ini dua</span>
-				<span in:fade={{ delay: 1400, duration: 200 }} out:fade>ini tiga</span>
+			<span class="hidden lg:block">Hover to learn more about each tech!</span>
+			<span class="block lg:hidden text-center">Tap to learn more about each tech!</span>
+			<div class="grid grid-cols-2 lg:grid-cols-4 justify-center text-center gap-y-8 mt-6 lg:mt-2">
+				{#each technology as tech}
+					<Tech {tech} />
+				{/each}
 			</div>
 		</div>
 	</div>
