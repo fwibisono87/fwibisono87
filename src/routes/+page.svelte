@@ -33,7 +33,7 @@
 {#if scrollY !== 0}
 	<div
 		class="mx-auto -mt-60 lg:-mt-80 w-full lg:w-[80vw]"
-		in:fade={{ delay: 350, duration: 200 }}
+		in:fade={{ delay: 500, duration: 200 }}
 		out:fade
 	>
 		<div class="flex flex-col">
