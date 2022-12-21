@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Buzzword from '../components/buzzword.svelte';
 	import Tech from '../components/tech.svelte';
+	import Socials from '../components/socials.svelte';
 	import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded';
 	import MdiLoading from '~icons/mdi/loading';
 	import { fade } from 'svelte/transition';
@@ -28,14 +29,15 @@
 		'mb-[6.5rem] lg:mb-[4rem]'}"
 >
 	<div class="mx-auto text-center my-auto" transition:fade>
-		<div class="flex flex-col gap-2 -mt-24">
-			<img src="/img/anime.webp" class="w-24 aspect-square rounded-full mx-auto" />
+		<div class="flex flex-col gap-2 w-[12.5rem] -mt-24">
+			<img src="/img/anime.webp" class="w-24 aspect-square rounded-full mx-auto" alt="Francis Wibisono" />
 			<h1 class="text-4xl font-semibold">Hello!</h1>
 			<span class="text-md italic">My name is</span>
 			<h2 class="text-2xl font-semibold text-dove">Francis Wibisono</h2>
 			<span class="text-md italic">and I make</span>
 			<Buzzword />
 			<span class="text-md italic">frontend applications</span>
+			<Socials />
 		</div>
 	</div>
 	{#if scrollY <= 32}
