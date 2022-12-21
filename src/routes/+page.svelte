@@ -9,8 +9,13 @@
 	import core from '/src/data/core.json';
 	import other from '/src/data/other.json';
 	import tools from '/src/data/tools.json';
+	import { onMount } from 'svelte';
 
 	let scrollY: number = 0;
+
+	onMount(() => {
+		scrollY = 0;
+	});
 </script>
 
 <div
@@ -40,23 +45,39 @@
 		in:fade={{ delay: 500, duration: 200 }}
 		out:fade
 	>
-		<div class="flex flex-col">
-			<h3 class="text-2xl font-semibold text-dove text-center lg:text-left">Technologies</h3>
-			<span class="hidden lg:block">Hover to learn more about each tech!</span>
-			<span class="block lg:hidden text-center">Tap to learn more about each tech!</span>
-			<div class="grid grid-cols-2 lg:grid-cols-4 justify-center text-center gap-y-8 mt-6 lg:mt-12">
-				{#each core as tech}
-					<Tech {tech} />
-				{/each}
-				{#each framework as tech}
-					<Tech {tech} />
-				{/each}
-				{#each other as tech}
-					<Tech {tech} />
-				{/each}
-				{#each tools as tech}
-					<Tech {tech} />
-				{/each}
+		<div class="flex flex-col gap-12">
+			<div>
+				<h3 class="text-2xl font-semibold text-dove text-center lg:text-left">Technologies</h3>
+				<span class="hidden lg:block">Hover to learn more about each tech!</span>
+				<span class="block lg:hidden text-center">Tap to learn more about each tech!</span>
+				<div
+					class="grid grid-cols-2 lg:grid-cols-4 justify-center text-center gap-y-8 mt-6 lg:mt-12"
+				>
+					{#each core as tech}
+						<Tech {tech} />
+					{/each}
+					{#each framework as tech}
+						<Tech {tech} />
+					{/each}
+					{#each other as tech}
+						<Tech {tech} />
+					{/each}
+					{#each tools as tech}
+						<Tech {tech} />
+					{/each}
+				</div>
+			</div>
+			<div>
+				<h3 class="text-2xl font-semibold text-dove text-center lg:text-left">Projects</h3>
+				<span class="hidden lg:block">Click to learn more</span>
+				<span class="block lg:hidden text-center">Tap to learn more</span>
+				under construction!
+			</div>
+			<div>
+				<h3 class="text-2xl font-semibold text-dove text-center lg:text-left">Experience</h3>
+				<span class="hidden lg:block">Click to learn more</span>
+				<span class="block lg:hidden text-center">Tap to learn more</span>
+				under construction!
 			</div>
 		</div>
 	</div>
