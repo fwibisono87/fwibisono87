@@ -2,7 +2,9 @@
 	import Buzzword from '../components/buzzword.svelte';
 	import Tech from '../components/tech.svelte';
 	import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded';
+	import MdiLoading from '~icons/mdi/loading';
 	import { fade } from 'svelte/transition';
+	import { navigating } from '$app/stores';
 
 	import technology from '/src/data/tech.json';
 	import framework from '/src/data/framework.json';
@@ -12,8 +14,11 @@
 	import { onMount } from 'svelte';
 
 	let scrollY: number = 0;
+	let height: number;
+	let loadTime: number = 0;
 
 	onMount(() => {
+		console.log('ini mounted');
 		scrollY = 0;
 	});
 </script>
@@ -35,7 +40,11 @@
 	</div>
 	{#if scrollY <= 32}
 		<div class="mx-auto mb-10 lg:mb-0" in:fade={{ delay: 500, duration: 200 }} out:fade>
-			<MaterialSymbolsKeyboardArrowDownRounded class="w-16 h-16 animate-pulse animate-bounce" />
+			{#if height}
+				<MaterialSymbolsKeyboardArrowDownRounded class="w-16 h-16 animate-pulse animate-bounce" />
+			{:else}
+				<MdiLoading class="w-8 h-8 mb-8 animate-spin" />
+			{/if}
 		</div>
 	{/if}
 </div>
@@ -83,4 +92,4 @@
 	</div>
 {/if}
 
-<svelte:window bind:scrollY />
+<svelte:window bind:scrollY bind:innerHeight={height} />

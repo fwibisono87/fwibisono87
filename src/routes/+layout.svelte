@@ -11,7 +11,7 @@
 </script>
 
 <div class="bg-primary text-text ">
-	<div class="min-w-screen scroll-smooth min-h-[150vh] justify-between pb-8">
+	<div class="min-w-screen scroll-smooth min-h-[105vh] justify-between pb-8">
 		<div class="px-12">
 			<slot />
 		</div>
