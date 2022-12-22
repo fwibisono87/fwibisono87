@@ -2,6 +2,7 @@
 	import Buzzword from '../components/buzzword.svelte';
 	import Tech from '../components/tech.svelte';
 	import Socials from '../components/socials.svelte';
+
 	import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded';
 	import MdiLoading from '~icons/mdi/loading';
 	import { fade } from 'svelte/transition';
@@ -30,7 +31,11 @@
 >
 	<div class="mx-auto text-center my-auto" transition:fade>
 		<div class="flex flex-col gap-2 w-[12.5rem] -mt-24">
-			<img src="/img/anime.webp" class="w-24 aspect-square rounded-full mx-auto" alt="Francis Wibisono" />
+			<img
+				src="/img/anime.webp"
+				class="w-24 aspect-square rounded-full mx-auto"
+				alt="Francis Wibisono"
+			/>
 			<h1 class="text-4xl font-semibold">Hello!</h1>
 			<span class="text-md italic">My name is</span>
 			<h2 class="text-2xl font-semibold text-dove">Francis Wibisono</h2>
@@ -43,7 +48,7 @@
 	{#if scrollY <= 32}
 		<div class="mx-auto mb-10 lg:mb-0" in:fade={{ delay: 500, duration: 200 }} out:fade>
 			{#if height}
-				<MaterialSymbolsKeyboardArrowDownRounded class="w-16 h-16 animate-pulse animate-bounce" />
+				<MaterialSymbolsKeyboardArrowDownRounded class="w-16 h-16 animate-pulse" />
 			{:else}
 				<MdiLoading class="w-8 h-8 mb-8 animate-spin" />
 			{/if}
@@ -52,7 +57,7 @@
 </div>
 {#if scrollY > 32}
 	<div
-		class="mx-auto -mt-[20vh] w-full lg:w-[80vw]"
+		class="mx-auto -mt-[30vh] w-full lg:w-[80vw]"
 		in:fade={{ delay: 500, duration: 200 }}
 		out:fade
 	>
@@ -62,7 +67,7 @@
 				<span class="hidden lg:block">Hover to learn more about each tech!</span>
 				<span class="block lg:hidden text-center">Tap to learn more about each tech!</span>
 				<div
-					class="grid grid-cols-2 lg:grid-cols-4 justify-center text-center gap-y-8 mt-6 lg:mt-12"
+					class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-around text-center gap-y-8 mt-6 lg:mt-12"
 				>
 					{#each core as tech}
 						<Tech {tech} />
