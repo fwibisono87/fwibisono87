@@ -94,7 +94,7 @@
 				</ol>
 			</div>
 			<div class="flex flex-col gap-4">
-				<Header title="Experience" />
+				<Header title="Experience" cta="" ctaMobile="" />
 				<ol class="relative border-l border-gunmetal ml-4 gap-24">
 					{#each experience as exp}
 						<Experience experience={exp} />

@@ -12,21 +12,33 @@
 	export let tech: Tech;
 
 	let showModal = false;
+	let hover = false;
+
 	const handleToggleModal = () => {
 		showModal = !showModal;
 	};
+
+	const handleMouseEnter = () => {
+		hover=true
+	}
+	const handleMouseLeave = () => {
+		hover=false
+	}
+
 	let showDescription = false;
 </script>
 
 <div
-	class="flex-col gap-2 select-none cursor-pointer grayscale hover:grayscale-0 "
+	class="flex-col gap-2 select-none cursor-pointer "
 	title={tech.title}
 	href={tech.url}
 	on:click={handleToggleModal}
 	on:keypress={handleToggleModal}
+	on:mouseenter={handleMouseEnter}
+	on:mouseleave={handleMouseLeave}
 >
 	<div class="flex w-16 mx-auto h-16">
-		<img src={tech.img} class="w-full my-auto max-w-16 max-h-16 mx-auto" alt={tech.title} />
+		<img src={tech.img} class="w-full my-auto max-w-16 max-h-16 mx-auto sepia {hover && 'sepia-0'}" alt={tech.title} />
 	</div>
 
 	<span class="font-semibold">

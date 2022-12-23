@@ -10,9 +10,7 @@
 </script>
 
 {#if open}
-	<div
-		class="modal z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center p-8 lg:p-0 "
-	>
+	<div class="modal z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center p-8 lg:p-0">
 		<div class="modal-overlay fixed w-full h-full bg-gray-900 opacity-50" transition:fade />
 		<div
 			transition:slide
