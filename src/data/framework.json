@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "Vue.js",
+        "desc": "Vue.js is a progressive JavaScript framework for building user interfaces.",
+        "url": "https://vuejs.org/",
+        "img": "/img/skills/vue.svg"
+    },
+    {
+        "id": 2,
+        "title": "Nuxt.js",
+        "desc": "Nuxt.js is a framework for creating server-rendered Vue.js applications.",
+        "url": "https://nuxtjs.org/",
+        "img": "/img/skills/nuxt.svg"
+    },
+    {
+        "id": 3,
+        "title": "Svelte.js",
+        "desc": "Svelte.js is a framework for building web applications with a reactive architecture.",
+        "url": "https://svelte.dev/",
+        "img": "/img/skills/svelte.webp"
+    },
+    {
+        "id": 4,
+        "title": "Tailwind CSS",
+        "desc": "Tailwind CSS is a utility-first CSS framework for rapidly building custom designs.",
+        "url": "https://tailwindcss.com/",
+        "img": "/img/skills/tailwind.svg"
+    }
+]

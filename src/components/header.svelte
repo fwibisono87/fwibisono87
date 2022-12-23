@@ -1,50 +1,9 @@
-<script>
-	let links = [
-		{
-			title: 'Home',
-			link: ''
-		},
-		{
-			title: 'Experience',
-			link: 'experience'
-		},
-		{
-			title: 'Education',
-			link: 'education'
-		},
-		{
-			title: 'Projects',
-			link: 'projects'
-		},
-		{
-			title: 'Skills',
-			link: 'skills'
-		}
-	];
-
-	function handleScroll(target) {
-		document.getElementById(target).scrollIntoView({
-			behavior: 'smooth'
-		});
-	}
+<script lang="ts">
+	export let title: string;
+	export let cta: string ="";
+	export let ctaMobile: string;
 </script>
 
-<template>
-	<div class="flex flex-row bg-background text-white font-medium px-14 pt-8">
-		<div class="mr-auto text-lg my-auto">
-			<h1>Francis<br />Wibisono</h1>
-		</div>
-		<div class="flex flex-col sm:flex-row right-0 font-normal my-auto border-l ml-4">
-			{#each links as link}
-				<span
-					on:click={() => {
-						handleScroll(link.link);
-					}}
-					class="mx-5 h-min my-auto cursor-pointer"
-				>
-					{link.title}
-				</span>
-			{/each}
-		</div>
-	</div>
-</template>
+<h3 class="text-2xl font-semibold text-text text-center lg:text-left">{title}</h3>
+<span class="hidden lg:block text-dove">{cta}</span>
+<span class="block lg:hidden text-dove text-center">{ctaMobile ? ctaMobile : cta}</span>

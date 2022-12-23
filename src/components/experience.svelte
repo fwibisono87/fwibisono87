@@ -1,85 +1,40 @@
 <script lang="ts">
-	import ExperienceCard from './experienceCard.svelte';
+	import MajesticonsComet from '~icons/majesticons/comet';
+	import CarbonView from '~icons/carbon/view';
+	import IcBaselineLink from '~icons/ic/baseline-link';
+	import CarbonViewOff from '~icons/carbon/view-off';
+	import IcBaselineLinkOff from '~icons/ic/baseline-link-off';
+	import MajesticonsCupLine from '~icons/majesticons/cup-line';
 
-	interface Exp {
-		startDate: string;
-		endDate: string;
-		badge: string;
-		org: string;
-		pos: string;
-	}
+	type Experience = {
+		company: string;
+		position: string;
+		duration: string;
+		location: string;
+		description?: string;
+	};
 
-	const expList: Exp[] = [
-		{
-			startDate: 'December 2021',
-			endDate: 'Sekarang',
-			badge: 'semi',
-			org: 'SayaKaya.id',
-			pos: 'Frontend Engineer Intern'
-		},
-		{
-			startDate: 'May 2021',
-			endDate: 'December 2021',
-			badge: 'full',
-			org: 'MyRobin.ID',
-			pos: 'Frontend Engineer Intern'
-		},
-		{
-			startDate: 'July 2021',
-			endDate: 'December 2021',
-			badge: 'full',
-			org: 'Faculty of Computer Science UI',
-			pos: 'Operating Systems TA'
-		}
-	];
-
-	const eduList: Exp[] = [
-		{
-			startDate: '2019',
-			endDate: 'Sekarang',
-			badge: 'semi',
-			org: 'Universitas Indonesia',
-			pos: 'Computer Science Major'
-		},
-		{
-			startDate: '2016',
-			endDate: '2019',
-			badge: 'full',
-			org: 'SMAN 2 KS Cilegon',
-			pos: 'Science Course'
-		}
-	];
+	export let experience: Experience;
 </script>
 
-<template>
-	<div class="flex flex-col xl:flex-row text-white mx-8 mt-16 justify-center">
-		<h2 class="text-4xl font-semibold mb-2 xl:w-48" id="experience">Experience</h2>
-		<hr class="-mx-3 xl:hidden" />
-		<div class="flex flex-col mt-6 xl:mt-0">
-			{#each expList as exp}
-				<ExperienceCard
-					startDate={exp.startDate}
-					endDate={exp.endDate}
-					badge={exp.badge}
-					org={exp.org}
-					pos={exp.pos}
-				/>
-			{/each}
-		</div>
-		<h2 class="text-4xl font-semibold mb-2 mt-7 xl:mt-0 xl:ml-7 xl:w-48" id="education">
-			Education
-		</h2>
-		<hr class="-mx-3 xl:hidden" />
-		<div class="flex flex-col mt-6 xl:mt-0">
-			{#each eduList as exp}
-				<ExperienceCard
-					startDate={exp.startDate}
-					endDate={exp.endDate}
-					badge={exp.badge}
-					org={exp.org}
-					pos={exp.pos}
-				/>
-			{/each}
-		</div>
-	</div>
-</template>
+<li class="mb-10 last:mb-0 ml-6 text-text">
+	<span
+		class="flex absolute -left-3 mt-1 justify-center items-center w-6 h-6 rounded-full ring-8 ring-gunmetal bg-cadet text-text"
+	>
+		<MajesticonsCupLine class="text-text" />
+	</span>
+	<h3 class="flex items-center text-lg font-semibold">
+		{experience.company}
+	</h3>
+
+	<span class="flex items-center  text-md font-semibold">
+		{experience.position}
+	</span>
+	<span class="flex items-center mb-1 text-md font-semibold">
+		{experience.location}
+	</span>
+	<time class="block mb-2 text-sm font-normal leading-none text-dove">{experience.duration}</time>
+	<p class="mb-4 text-base font-normal text-dove">
+		{experience.description}
+	</p>
+</li>
