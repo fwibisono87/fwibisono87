@@ -2,6 +2,8 @@
 	import Buzzword from '../components/buzzword.svelte';
 	import Tech from '../components/tech.svelte';
 	import Socials from '../components/socials.svelte';
+	import Project from '../components/project.svelte';
+	import Header from '../components/header.svelte';
 
 	import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded';
 	import MdiLoading from '~icons/mdi/loading';
@@ -13,6 +15,7 @@
 	import core from '/src/data/core.json';
 	import other from '/src/data/other.json';
 	import tools from '/src/data/tools.json';
+	import projects from '/src/data/projects.json';
 	import { onMount } from 'svelte';
 
 	let scrollY: number = 0;
@@ -57,15 +60,13 @@
 </div>
 {#if scrollY > 32}
 	<div
-		class="mx-auto -mt-[30vh] w-full lg:w-[80vw]"
+		class="mx-auto -mt-[32vh] w-full lg:w-[80vw]"
 		in:fade={{ delay: 500, duration: 200 }}
 		out:fade
 	>
 		<div class="flex flex-col gap-12">
 			<div>
-				<h3 class="text-2xl font-semibold text-dove text-center lg:text-left">Technologies</h3>
-				<span class="hidden lg:block">Hover to learn more about each tech!</span>
-				<span class="block lg:hidden text-center">Tap to learn more about each tech!</span>
+				<Header title="Technologies" cta="Click to learn more." ctaMobile="Tap to learn more." />
 				<div
 					class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-around text-center gap-y-8 mt-6 lg:mt-12"
 				>
@@ -84,15 +85,18 @@
 				</div>
 			</div>
 			<div>
-				<h3 class="text-2xl font-semibold text-dove text-center lg:text-left">Projects</h3>
-				<span class="hidden lg:block">Click to learn more</span>
-				<span class="block lg:hidden text-center">Tap to learn more</span>
-				under construction!
+				<div class="mb-8">
+					<Header title="Projects" cta="Click to learn more." ctaMobile="Tap to learn more." />
+				</div>
+
+				<ol class="relative border-l border-gunmetal ml-4 gap-24">
+					{#each projects as project}
+						<Project {project} />
+					{/each}
+				</ol>
 			</div>
 			<div>
-				<h3 class="text-2xl font-semibold text-dove text-center lg:text-left">Experience</h3>
-				<span class="hidden lg:block">Click to learn more</span>
-				<span class="block lg:hidden text-center">Tap to learn more</span>
+				<Header title="Experience" cta="Click to learn more." ctaMobile="Tap to learn more." />
 				under construction!
 			</div>
 		</div>

@@ -5,8 +5,10 @@ module.exports = {
     extend: {
       colors: {
         primary: '#1B1C1E',
-        text: '#736c59',
-        dove: '#626262'
+        text: '#ae865f',
+        dove: '#626262',
+        cadet: "#122752",
+        gunmetal: "#282d33"
       },
       animation: {
         'pulse-slow': 'pulse 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite',
