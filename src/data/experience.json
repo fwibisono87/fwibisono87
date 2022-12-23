@@ -1,0 +1,50 @@
+[
+    {
+        "company": "Rumah Siap Kerja",
+        "position": "Junior Frontend Engineer",
+        "duration": "October 2022 - Present",
+        "location": "Jakarta Metropolitan Area",
+        "description": "Migrating components, libraries, and pages from the old Vue Options API to Nuxt 3 and Compositions API"
+    },
+    {
+        "company": "bilateralstimulation.io",
+        "position": "Frontend Developer",
+        "duration": "June 2022 - September 2022 (4 months)",
+        "location": "Berlin, Germany",
+        "description": "Revamp animations, create presistent preferences for clients"
+    },
+    {
+        "company": "Faculty of Computer Science, Universitas Indonesia",
+        "position": "Teaching Assistant Coordinator",
+        "duration": "August 2022 - December 2022 (5 months)",
+        "location": "Depok, West Java, Indonesia",
+        "description": "Manage and coordinate fellow TA's for the Operating Systems course."
+    },
+    {
+        "company": "SayaKaya",
+        "position": "Frontend Engineer",
+        "duration": "December 2021 - June 2022 (7 months)",
+        "location": "Jakarta, Indonesia",
+        "description": "Build landing page and blog integration."
+    },
+    {
+        "company": "MyRobin.ID",
+        "position": "Frontend Developer",
+        "duration": "May 2021 - December 2021 (8 months)",
+        "description": "Build features and fix bugs."
+    },
+    {
+        "company": "Faculty of Computer Science, Universitas Indonesia",
+        "position": "Teaching Assistant",
+        "duration": "July 2021 - August 2022 (1 year 2 months)",
+        "location": "Depok, West Java, Indonesia",
+        "description": "Teaching Assistant for the Operating Systems course. Responsible for creating weekly quizzes and help troubleshoot student issues."
+    },
+    {
+        "company": "Faculty of Computer Science, Universitas Indonesia",
+        "position": "Tracer Study Staff Member",
+        "duration": "January 2021 - December 2021 (1 year)",
+        "location": "Depok, West Java, Indonesia",
+        "description": "Perform data collection, cleanup, and storage."
+    }
+]

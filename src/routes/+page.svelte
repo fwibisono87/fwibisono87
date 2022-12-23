@@ -4,13 +4,13 @@
 	import Socials from '../components/socials.svelte';
 	import Project from '../components/project.svelte';
 	import Header from '../components/header.svelte';
+	import Experience from '../components/experience.svelte';
 
 	import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded';
 	import MdiLoading from '~icons/mdi/loading';
 	import { fade } from 'svelte/transition';
-	import { navigating } from '$app/stores';
 
-	import technology from '/src/data/tech.json';
+	import experience from '/src/data/experience.json';
 	import framework from '/src/data/framework.json';
 	import core from '/src/data/core.json';
 	import other from '/src/data/other.json';
@@ -84,10 +84,8 @@
 					{/each}
 				</div>
 			</div>
-			<div>
-				<div class="mb-8">
-					<Header title="Projects" cta="Click to learn more." ctaMobile="Tap to learn more." />
-				</div>
+			<div class="flex flex-col gap-4">
+				<Header title="Projects" cta="Click to learn more." ctaMobile="Tap to learn more." />
 
 				<ol class="relative border-l border-gunmetal ml-4 gap-24">
 					{#each projects as project}
@@ -95,10 +93,15 @@
 					{/each}
 				</ol>
 			</div>
-			<div>
-				<Header title="Experience" cta="Click to learn more." ctaMobile="Tap to learn more." />
-				under construction!
+			<div class="flex flex-col gap-4">
+				<Header title="Experience" />
+				<ol class="relative border-l border-gunmetal ml-4 gap-24">
+					{#each experience as exp}
+						<Experience experience={exp} />
+					{/each}
+				</ol>
 			</div>
+			
 		</div>
 	</div>
 {/if}

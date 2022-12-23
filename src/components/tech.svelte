@@ -19,7 +19,7 @@
 </script>
 
 <div
-	class="flex-col gap-2 select-none cursor-pointer"
+	class="flex-col gap-2 select-none cursor-pointer grayscale hover:grayscale-0 "
 	title={tech.title}
 	href={tech.url}
 	on:click={handleToggleModal}
