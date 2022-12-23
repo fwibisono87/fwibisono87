@@ -52,13 +52,13 @@
 			href={project.link}
             target="_blank"
             rel="noreferrer"
-			class="w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-cadet text-text border-text hover:bg-gray-700 focus:ring-gray-700"
+			class="ml-2 w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-cadet text-text border-text hover:bg-gray-700 focus:ring-gray-700"
 			><IcBaselineLink /> <span class="ml-1">Open Link</span></a
 		>
         {:else}
 		<span
 			disabled
-			class="w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 cursor-not-allowed focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-gunmetal text-text border-text "
+			class="ml-2 w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 cursor-not-allowed focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-gunmetal text-text border-text "
 			><IcBaselineLinkOff /> <span class="ml-1">Not Available</span></span
 		>
 	{/if}
