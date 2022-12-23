@@ -27,7 +27,7 @@
         "title": "PRF UI",
         "date": "August 2021",
         "details": "Page for Pesta Rakyat Fisika, held by the Physics Department at Universitas Indonesia. Built with Nuxt.js/Vue, Vuetify.js, and Firebase.",
-        "link": "https://www.prfui.com/",
+        "link": "",
         "source": "",
         "img": ""
     },
@@ -43,7 +43,7 @@
         "title": "GoPus",
         "date": "July 2021",
         "details": "Library management application built with Django.",
-        "link": "https://go-pus.herokuapp.com/",
+        "link": "",
         "source": "https://github.com/fwibisono87/GoPus",
         "img": ""
     },
@@ -51,7 +51,7 @@
         "title": "KEC 2021",
         "date": "Febuary 2021",
         "details": "Page for Krakatau English Competition 2021, featuring authentication and grading. Built with Django.",
-        "link": "http://kec-2021.herokuapp.com/",
+        "link": "",
         "source": "",
         "img": ""
     },
@@ -59,7 +59,7 @@
         "title": "FightCorona",
         "date": "January 2021",
         "details": "Group project for the Web Programming and Design Course. Built with Django.",
-        "link": "https://fight-corona.herokuapp.com/",
+        "link": "",
         "source": "https://gitlab.com/fwibisono87/tk-2-electric-boogaloo/",
         "img": ""
     },

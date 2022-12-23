@@ -3,6 +3,7 @@
 	import CarbonView from '~icons/carbon/view';
 	import IcBaselineLink from '~icons/ic/baseline-link';
 	import CarbonViewOff from '~icons/carbon/view-off';
+    import IcBaselineLinkOff from '~icons/ic/baseline-link-off'
 
 	type Project = {
 		title: string;
@@ -33,6 +34,8 @@
 		<a
 			title="View source of {project.title}"
 			href={project.source}
+            target="_blank"
+            rel="noreferrer"
 			class="w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-cadet text-text border-text hover:bg-gray-700 focus:ring-gray-700"
 			><CarbonView /> <span class="ml-2">View Source</span></a
 		>
@@ -47,8 +50,16 @@
 		<a
 			title="View {project.title}"
 			href={project.link}
-			class="inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-cadet text-text border-text hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            target="_blank"
+            rel="noreferrer"
+			class="w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-cadet text-text border-text hover:bg-gray-700 focus:ring-gray-700"
 			><IcBaselineLink /> <span class="ml-1">Open Link</span></a
+		>
+        {:else}
+		<span
+			disabled
+			class="w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 cursor-not-allowed focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-gunmetal text-text border-text "
+			><IcBaselineLinkOff /> <span class="ml-1">Not Available</span></span
 		>
 	{/if}
 </li>
