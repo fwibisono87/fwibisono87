@@ -1,38 +1,33 @@
-# create-svelte
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aa315fea-e7de-4cba-b33d-121c411fffb4/deploy-status)](https://app.netlify.com/sites/affectionate-euclid-97d63a/deploys)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# Hello!
 
-## Creating a project
+My name is Francis Wibisono, a Third Year Student at Faculty of Computer Science, Universitas Indonesia. I am currently working as a Frontend Web Developer and Teaching assistant for Operating Systems. Nice to meet you!
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Operating Systems
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+![Windows Icon](https://img.shields.io/badge/OS-Windows-informational?style=for-the-badge&logo=windows)
+![Windows Icon](https://img.shields.io/badge/OS-Kubuntu-informational?style=for-the-badge&logo=Kubuntu)
+![Windows Icon](https://img.shields.io/badge/OS-Endeavor-informational?style=for-the-badge&logo=ArchLinux)
+![Windows Icon](https://img.shields.io/badge/OS-Android-informational?style=for-the-badge&logo=Android)
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Frameworks
 
-## Developing
+![Tailwind](https://img.shields.io/badge/Framework-Tailwind-informational?style=for-the-badge&logo=TailwindCSS)
+![Tailwind](https://img.shields.io/badge/Framework-Svelte-informational?style=for-the-badge&logo=Svelte)
+![Vue](https://img.shields.io/badge/Framework-Vue.js-informational?style=for-the-badge&logo=vue.js)
+![Vuetify](https://img.shields.io/badge/Framework-Vuetify-informational?style=for-the-badge&logo=vuetify)
+![Nuxt](https://img.shields.io/badge/Framework-Nuxt.js-informational?style=for-the-badge&logo=nuxt.js)
+![Django](https://img.shields.io/badge/Framework-Django-informational?style=for-the-badge&logo=django)
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Tools
 
-```bash
-npm run dev
+![Django](https://img.shields.io/badge/Tools-VSCODE-informational?style=for-the-badge&logo=VisualStudioCode)
+![Django](https://img.shields.io/badge/Tools-PyCharm-informational?style=for-the-badge&logo=PyCharm)
+![Django](https://img.shields.io/badge/Tools-WebStorm-informational?style=for-the-badge&logo=WebStorm)
+![Django](https://img.shields.io/badge/Tools-WireShark-informational?style=for-the-badge&logo=WireShark)
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Technology
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+![VirtualBox](https://img.shields.io/badge/Tech-Virtualbox-informational?style=for-the-badge&logo=VirtualBox)
+![Postgres](https://img.shields.io/badge/Tech-PostgreSQL-informational?style=for-the-badge&logo=Postgresql)
