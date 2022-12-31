@@ -65,7 +65,7 @@
 		out:fade
 	>
 		<div class="flex flex-col gap-12">
-			<div>
+			<div in:fade={{ delay: 700, duration: 200 }}>
 				<Header title="Technologies" cta="Click to learn more." ctaMobile="Tap to learn more." />
 				<div
 					class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-around text-center gap-y-8 mt-6 lg:mt-12"
@@ -84,7 +84,7 @@
 					{/each}
 				</div>
 			</div>
-			<div class="flex flex-col gap-4">
+			<div in:fade={{ delay: 900, duration: 200 }} class="flex flex-col gap-4">
 				<Header title="Projects" cta="Click to learn more." ctaMobile="Tap to learn more." />
 
 				<ol class="relative border-l border-gunmetal ml-4 gap-24">
@@ -93,8 +93,8 @@
 					{/each}
 				</ol>
 			</div>
-			<div class="flex flex-col gap-4">
-				<Header title="Experience" cta="" ctaMobile="" />
+			<div in:fade={{ delay: 1200, duration: 200 }} class="flex flex-col gap-4">
+				<Header title="Experience" />
 				<ol class="relative border-l border-gunmetal ml-4 gap-24">
 					{#each experience as exp}
 						<Experience experience={exp} />

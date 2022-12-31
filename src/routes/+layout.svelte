@@ -27,8 +27,11 @@
 				rel="noreferrer"
 				href="https://icones.js.org">icones.js</a
 			>, profile picture by
-			<a class="hover:underline text-text" target="_blank" href="twitter.com/ansqeepng"
-				>@ansqeepng</a
+			<a
+				class="hover:underline text-text"
+				target="_blank"
+				href="https://twitter.com/ansqeepng"
+				rel="noreferrer">@ansqeepng</a
 			>, color scheme inspired by
 			<a
 				class="hover:underline text-text"
