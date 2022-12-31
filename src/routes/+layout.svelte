@@ -2,10 +2,10 @@
 	import '../app.css';
 	import * as animateScroll from 'svelte-scrollto';
 	import MajesticonsShootingStar from '~icons/majesticons/shooting-star';
+	import { showSecret } from '../stores';
 
-	function scrollToTop() {
-		console.log('nya');
-		animateScroll.scrollToTop();
+	function handleSecret() {
+		showSecret.update((b) => !b);
 	}
 
 	let scrollY = 0;
@@ -17,8 +17,14 @@
 			<slot />
 		</div>
 	</div>
-	<div class="flex flex-col bg-cadet border-t-2 border-text w-screen justify-center py-8">
-		<MajesticonsShootingStar class="text-text mx-auto" />
+	<div class="flex flex-col bg-cadet border-t-2 border-text w-screen justify-center py-8 transition">
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<div
+			on:click={handleSecret}
+			class="text-text mx-auto animate-pulse cursor-pointer transition {$showSecret && 'rotate-90'}"
+		>
+			<MajesticonsShootingStar />
+		</div>
 		<span class="mx-auto mb-4">©Francis Wibisono 2023</span>
 		<span class="mx-auto text-dove text-center px-4"
 			>Icons provided by <a

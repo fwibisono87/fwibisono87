@@ -31,7 +31,6 @@
 <div
 	class="flex-col gap-2 select-none cursor-pointer "
 	title={tech.title}
-	href={tech.url}
 	on:click={handleToggleModal}
 	on:keypress={handleToggleModal}
 	on:mouseenter={handleMouseEnter}
@@ -45,6 +44,14 @@
 		{tech.title}
 	</span>
 	<Modal title={tech.title} open={showModal} on:close={() => handleToggleModal()}
-		><svelte:fragment slot="body">{tech.desc}</svelte:fragment></Modal
+		><svelte:fragment slot="body">
+			<div class="flex flex-row w-full gap-6">
+				<img src={tech.img} alt={tech.title} class="w-24 max-h-24 my-auto">
+				<p class="text-left">
+					{@html tech.desc}
+				</p>
+			
+			</div>
+		</svelte:fragment></Modal
 	>
 </div>

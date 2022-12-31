@@ -5,6 +5,7 @@
 	import Project from '../components/project.svelte';
 	import Header from '../components/header.svelte';
 	import Experience from '../components/experience.svelte';
+	import {showSecret} from '../stores'
 
 	import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded';
 	import MdiLoading from '~icons/mdi/loading';
@@ -16,6 +17,7 @@
 	import other from '/src/data/other.json';
 	import tools from '/src/data/tools.json';
 	import projects from '/src/data/projects.json';
+	import secrets from '/src/data/secret.json'
 	import { onMount } from 'svelte';
 
 	let scrollY: number = 0;
@@ -25,6 +27,7 @@
 	onMount(() => {
 		console.log('ini mounted');
 		scrollY = 0;
+		showSecret.set(false)
 	});
 </script>
 
@@ -33,7 +36,7 @@
 		'mb-[6.5rem] lg:mb-[4rem]'}"
 >
 	<div class="mx-auto text-center my-auto" transition:fade>
-		<div class="flex flex-col gap-2 w-[12.5rem] -mt-24">
+		<div class="flex flex-col gap-2 w-[15rem] -mt-24">
 			<img
 				src="/img/anime.webp"
 				class="w-24 aspect-square rounded-full mx-auto"
@@ -101,7 +104,18 @@
 					{/each}
 				</ol>
 			</div>
-			
+			{#if $showSecret}
+			<div in:fade={{ delay: 0, duration: 200 }} class="flex flex-col gap-4">
+				<Header title="Interests" />
+				<div
+				class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-around text-center gap-y-8 mt-6 lg:mt-12"
+			>
+				{#each secrets as secret}
+					<Tech tech={secret} />
+				{/each}
+			</div>
+			</div>
+			{/if}
 		</div>
 	</div>
 {/if}
