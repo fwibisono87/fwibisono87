@@ -17,7 +17,9 @@
 			<slot />
 		</div>
 	</div>
-	<div class="flex flex-col bg-cadet border-t-2 border-text w-screen justify-center py-8 transition">
+	<div
+		class="flex flex-col bg-cadet border-t-2 border-text w-screen justify-center py-8 transition"
+	>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div
 			on:click={handleSecret}
@@ -25,7 +27,13 @@
 		>
 			<MajesticonsShootingStar />
 		</div>
-		<span class="mx-auto mb-4">©Francis Wibisono 2023</span>
+		<a href="/" class="mx-auto">
+			<span class="mx-auto mb-4">©Francis Wibisono 2023</span>
+		</a>
+		<a href="/countdown" class="mx-auto">
+			<span class="mx-auto mb-4">Countdowns</span>
+		</a>
+
 		<span class="mx-auto text-dove text-center px-4"
 			>Icons provided by <a
 				class="hover:underline text-text"

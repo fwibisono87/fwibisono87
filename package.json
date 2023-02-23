@@ -39,6 +39,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"svelte-countdown": "^1.1.2",
 		"svelte-scrollto": "^0.2.0"
 	}
 }

@@ -641,6 +641,11 @@ cssesc@^3.0.0:
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
 
+dayjs@1.10.1:
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.1.tgz#114f678624842035396667a24eb1436814bc16fd"
+  integrity sha512-2xg7JrHQeLBQFkvTumLoy62x1siyeocc98QwjtURgvRqOPYmAkMUdmSjrOA+MlmL6QMQn5MUhDf6rNZNuPc1LQ==
+
 debug@^4.1.1, debug@^4.3.2, debug@^4.3.4:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
@@ -1765,6 +1770,13 @@ svelte-check@^2.9.2:
     sade "^1.7.4"
     svelte-preprocess "^4.0.0"
     typescript "*"
+
+svelte-countdown@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/svelte-countdown/-/svelte-countdown-1.1.2.tgz#31995bbdc5a55b9fe5c6e991e47f73b6d2f11b22"
+  integrity sha512-datUfbRtGCp+7OwIRcbW9tbIwlkN7KiJp9Mg01Na9HgSQrLG0knsD/xjaIVKPovxY8xF0yOrbPEz+bT/BS9EBQ==
+  dependencies:
+    dayjs "1.10.1"
 
 svelte-hmr@^0.15.1:
   version "0.15.1"
