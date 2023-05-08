@@ -25,6 +25,7 @@
 		>
 			<MajesticonsShootingStar />
 		</div>
+		<span class="mx-auto underline cursor-pointer"><a href="/">Francis Wibisono</a></span>
 		<span class="mx-auto mb-4">©Francis Wibisono 2023</span>
 		<span class="mx-auto text-dove text-center px-4"
 			>Icons provided by <a
