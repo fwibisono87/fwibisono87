@@ -25,9 +25,9 @@
 	let loadTime: number = 0;
 
 	onMount(() => {
-		console.log('ini mounted');
 		scrollY = 0;
 		showSecret.set(false)
+		window.umami.track('Main Page Open')
 	});
 </script>
 

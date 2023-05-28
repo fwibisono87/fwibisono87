@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
 
 	let eventList = [
 		{
@@ -13,8 +14,15 @@
 			link: 'https://drive.google.com/drive/folders/1tp6gV8MvWwrR5qrB4E5lfZBsEjDIsx4O?usp=drive_link'
 		}
 	];
+
+	onMount(() => {
+		window.umami.track('Photos Page Open');
+	});
 </script>
 
+<head>
+	<title>Francis Wibisono - Photos</title>
+</head>
 <div class="flex flex-col py-12 px-6">
 	<h1 class="text-2xl font-semibold mx-auto">Event Pictures</h1>
 	<span class="text-center"
@@ -37,7 +45,10 @@
 		{#each eventList as event}
 			<button
 				on:click={() => {
-					goto(event.link);
+					//use this if and when umami shows custom tags
+					// window.umami.track('Event Folder Open', { event: event.name });
+					window.umami.track('Event Folder Open' + event.name );
+					window.open(event.link, '_blank');
 				}}
 				class="bg-cadet rounded-lg border-text border-2 px-4 py-2 w-[40%] mx-auto"
 				><div class="flex flex-col">
