@@ -6,6 +6,11 @@
 			name: 'Comic Frontier 16',
 			location: 'ICE BSD, 2023',
 			link: 'https://drive.google.com/drive/folders/1-QeC0MVD0k-x2ilYAgux25QO4q8HcByv?usp=share_link'
+		},
+		{
+			name: 'TOY FANATIC VOL. 5 Tokyo Summer Edition',
+			location: 'Neo Soho 23/05/28',
+			link: 'https://drive.google.com/drive/folders/1tp6gV8MvWwrR5qrB4E5lfZBsEjDIsx4O?usp=drive_link'
 		}
 	];
 </script>
