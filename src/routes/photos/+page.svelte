@@ -1,23 +1,23 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
+    import { fade, scale } from 'svelte/transition';
 
-
-    let  isLoading = true;
+	let isLoading = true;
 	let eventList = [];
 
 	onMount(async () => {
 		// window.umami.track('Photos Page Open');
-        const eventMeta = await fetch('/json/events.json');
+		const eventMeta = await fetch('/json/events.json');
 		eventList = await eventMeta.json();
-        isLoading = false
+		isLoading = false;
 	});
 </script>
 
 <head>
 	<title>Francis Wibisono - Photos</title>
 </head>
-<div class="flex flex-col py-12 px-6">
+<div class="flex flex-col py-12 px-6" transition:fade>
 	<h1 class="text-2xl font-semibold mx-auto">Event Pictures</h1>
 	<span class="text-center"
 		>Hello! Thanks for visiting my page! This page is used to distribute pictures I take in events!
@@ -36,22 +36,28 @@
 	>
 
 	<div class="flex flex-col gap-8">
-        {#if !isLoading}
-		{#each eventList as event}
-			<button
-				on:click={() => {
-					//use this if and when umami shows custom tags
-					// window.umami.track('Event Folder Open', { event: event.name });
-					// window.umami.track('Event Folder Open' + event.name );
-					window.open('photos/'+event.slug);
-				}}
-				class="bg-cadet rounded-lg border-text border-2 px-4 py-2 w-[40%] mx-auto"
-				><div class="flex flex-col">
-					{event.eventName}
-					<span class="text-dove text-sm">{event.location}</span>
-                    <span class="text-dove text-sm italic">{event.date}</span>
-				</div></button
-			>
+		{#if !isLoading}
+			{#each eventList as event}
+				<button
+					on:click={() => {
+						//use this if and when umami shows custom tags
+						// window.umami.track('Event Folder Open', { event: event.name });
+						// window.umami.track('Event Folder Open' + event.name );
+						// window.open('photos/' + event.slug);
+                        goto('photos/' + event.slug);
+					}}
+					class="bg-cadet rounded-lg border-text border-2 px-4 py-2 w-[40%] mx-auto"
+					><div class="flex flex-col font-semibold" transition:fade>
+						{event.eventName}
+						<span class="text-dove text-sm">{event.location}</span>
+						<span class="text-dove text-sm italic">{event.date}</span>
+					</div></button
+				>
+			{/each}
+		{:else}
+        {#each Array(12).fill() as _}
+			<!-- Assume you want 12 skeletons -->
+			<div class="relative bg-gray-600 animate-pulse rounded-lg border-text border-2 px-4 py-2 w-[40%] mx-auto h-12" />
 		{/each}
         {/if}
 	</div>
