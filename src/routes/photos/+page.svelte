@@ -2,26 +2,15 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 
-	let eventList = [
-		{
-			name: 'Mukashi Vol 2',
-			location: 'SPARK 23/05/28',
-			link: 'https://drive.google.com/drive/folders/1GlZ2CZhxTekkB7ZISyS5fvyoffy9cUEw?usp=sharing'
-		},
-		{
-			name: 'TOY FANATIC VOL. 5 Tokyo Summer Edition',
-			location: 'Neo Soho 23/05/28',
-			link: 'https://drive.google.com/drive/folders/1tp6gV8MvWwrR5qrB4E5lfZBsEjDIsx4O?usp=drive_link'
-		},
-		{
-			name: 'Comic Frontier 16',
-			location: 'ICE BSD, 2023',
-			link: 'https://drive.google.com/drive/folders/1-QeC0MVD0k-x2ilYAgux25QO4q8HcByv?usp=share_link'
-		},
-	];
 
-	onMount(() => {
-		window.umami.track('Photos Page Open');
+    let  isLoading = true;
+	let eventList = [];
+
+	onMount(async () => {
+		// window.umami.track('Photos Page Open');
+        const eventMeta = await fetch('/json/events.json');
+		eventList = await eventMeta.json();
+        isLoading = false
 	});
 </script>
 
@@ -47,20 +36,23 @@
 	>
 
 	<div class="flex flex-col gap-8">
+        {#if !isLoading}
 		{#each eventList as event}
 			<button
 				on:click={() => {
 					//use this if and when umami shows custom tags
 					// window.umami.track('Event Folder Open', { event: event.name });
-					window.umami.track('Event Folder Open' + event.name );
-					window.open(event.link, '_blank');
+					// window.umami.track('Event Folder Open' + event.name );
+					window.open('photos/'+event.slug);
 				}}
 				class="bg-cadet rounded-lg border-text border-2 px-4 py-2 w-[40%] mx-auto"
 				><div class="flex flex-col">
-					{event.name}
+					{event.eventName}
 					<span class="text-dove text-sm">{event.location}</span>
+                    <span class="text-dove text-sm italic">{event.date}</span>
 				</div></button
 			>
 		{/each}
+        {/if}
 	</div>
 </div>
