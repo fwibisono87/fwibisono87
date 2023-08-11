@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-    import { fade, scale } from 'svelte/transition';
+	import { fade, scale } from 'svelte/transition';
 
 	let isLoading = true;
 	let eventList = [];
@@ -44,7 +44,7 @@
 						// window.umami.track('Event Folder Open', { event: event.name });
 						// window.umami.track('Event Folder Open' + event.name );
 						// window.open('photos/' + event.slug);
-                        goto('photos/' + event.slug);
+						goto('photos/' + event.slug);
 					}}
 					class="bg-cadet rounded-lg border-text border-2 px-4 py-2 w-[40%] mx-auto"
 					><div class="flex flex-col font-semibold">
@@ -55,10 +55,12 @@
 				>
 			{/each}
 		{:else}
-        {#each Array(12).fill() as _}
-			<!-- Assume you want 12 skeletons -->
-			<div class="relative bg-gray-600 animate-pulse rounded-lg border-text border-2 px-4 py-2 w-[40%] mx-auto h-12" />
-		{/each}
-        {/if}
+			{#each Array(12).fill() as _}
+				<!-- Assume you want 12 skeletons -->
+				<div
+					class="relative bg-gray-600 animate-pulse rounded-lg border-text border-2 px-4 py-2 w-[40%] mx-auto h-12"
+				/>
+			{/each}
+		{/if}
 	</div>
 </div>

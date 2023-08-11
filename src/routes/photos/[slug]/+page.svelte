@@ -45,7 +45,6 @@
 		if (eventPhotos.ok) {
 			const data = await eventPhotos.json();
 			LR.images = data; // Assuming the fetched JSON has an "images" property
-			console.log(data);
 		} else {
 			console.error('Failed to fetch images data for', eventSlug);
 		}
@@ -56,7 +55,6 @@
 
 		document.addEventListener('keydown', handleKeydown);
 
-		console.log(currentEvent);
 		isLoading = false;
 		return () => {
 			// Cleanup the event listener on component destroy
