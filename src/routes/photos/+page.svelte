@@ -17,7 +17,7 @@
 <head>
 	<title>Francis Wibisono - Photos</title>
 </head>
-<div class="flex flex-col py-12 px-6" transition:fade>
+<div class="flex flex-col py-12 px-6">
 	<h1 class="text-2xl font-semibold mx-auto">Event Pictures</h1>
 	<span class="text-center"
 		>Hello! Thanks for visiting my page! This page is used to distribute pictures I take in events!
@@ -47,7 +47,7 @@
                         goto('photos/' + event.slug);
 					}}
 					class="bg-cadet rounded-lg border-text border-2 px-4 py-2 w-[40%] mx-auto"
-					><div class="flex flex-col font-semibold" transition:fade>
+					><div class="flex flex-col font-semibold">
 						{event.eventName}
 						<span class="text-dove text-sm">{event.location}</span>
 						<span class="text-dove text-sm italic">{event.date}</span>
