@@ -120,7 +120,7 @@
 				}}
 			>
 				<img
-					src={`https://is3.cloudhost.id/francis/photos/${eventSlug}/thumbnails/${image.exportFilename}.jpg`}
+					src={`https://storage.cloud.google.com/fws-b-2/photos/${eventSlug}/thumbnails/${image.exportFilename}.jpg`}
 					alt={image.title}
 					class="w-full h-full aspect-square object-cover"
 					loading="lazy"
@@ -172,7 +172,7 @@
 		</div>
 		<img
 			transition:scale
-			src={`https://is3.cloudhost.id/francis/photos/${eventSlug}/large/${selectedImage.exportFilename}.jpg`}
+			src={`https://storage.cloud.google.com/fws-b-2/photos/${eventSlug}/large/${selectedImage.exportFilename}.jpg`}
 			alt={selectedImage.title}
 			class="lg:max-w-2/3 max-h-[75%] lg:max-h-1/2"
 			on:click={(e) => e.stopPropagation()}

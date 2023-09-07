@@ -3,28 +3,28 @@
         "id": 1,
         "title": "Svelte",
         "desc": "Svelte is known for its lightweight and efficient approach to building web applications, as well as its intuitive syntax and ability to create reactive components.",
-        "img": "/img/skills/svelte.webp",
+        "img": "https://storage.cloud.google.com/fws-b-2/static/img/skills/svelte.webp",
         "url": "https://svelte.dev"
     },
     {
         "id": 2,
         "title": "Tailwind CSS",
         "desc": "Tailwind CSS is a utility-first CSS framework that lets you build custom designs quickly and efficiently using pre-designed CSS classes. Result: clean, scalable, maintainable code.",
-        "img": "/img/skills/tailwind.svg",
+        "img": "https://storage.cloud.google.com/fws-b-2/static/img/skills/tailwind.svg",
         "url": "https://tailwindcss.com"
     },
     {
         "id": 3,
         "title": "Netlify",
         "desc": "Netlify is a cloud-based platform that makes it easy to deploy and host modern web applications. It offers continuous deployment, global CDN, and powerful features for building, deploying, and managing your applications.",
-        "img": "/img/skills/netlify.svg",
+        "img": "https://storage.cloud.google.com/fws-b-2/static/img/skills/netlify.svg",
         "url": "https://www.netlify.com/"
     },
     {
         "id": 4,
         "title": "TypeScript",
         "desc": "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. It adds optional static typing and class-based object-oriented programming to JavaScript.",
-        "img": "/img/skills/ts.svg",
+        "img": "https://storage.cloud.google.com/fws-b-2/static/img/skills/ts.svg",
         "url": "https://www.linux.com/"
     }
 ]

@@ -5,7 +5,7 @@
 	import Project from '../components/project.svelte';
 	import Header from '../components/header.svelte';
 	import Experience from '../components/experience.svelte';
-	import {showSecret} from '../stores'
+	import { showSecret } from '../stores';
 
 	import MaterialSymbolsKeyboardArrowDownRounded from '~icons/material-symbols/keyboard-arrow-down-rounded';
 	import MdiLoading from '~icons/mdi/loading';
@@ -17,7 +17,7 @@
 	import other from '/src/data/other.json';
 	import tools from '/src/data/tools.json';
 	import projects from '/src/data/projects.json';
-	import secrets from '/src/data/secret.json'
+	import secrets from '/src/data/secret.json';
 	import { onMount } from 'svelte';
 
 	let scrollY: number = 0;
@@ -26,8 +26,8 @@
 
 	onMount(() => {
 		scrollY = 0;
-		showSecret.set(false)
-		window.umami.track('Main Page Open')
+		showSecret.set(false);
+		window.umami.track('Main Page Open');
 	});
 </script>
 
@@ -38,7 +38,7 @@
 	<div class="mx-auto text-center my-auto" transition:fade>
 		<div class="flex flex-col gap-2 w-[15rem] -mt-24">
 			<img
-				src="/img/anime.webp"
+				src="https://storage.cloud.google.com/fws-b-2/static/img/anime.webp"
 				class="w-24 aspect-square rounded-full mx-auto"
 				alt="Francis Wibisono"
 			/>
@@ -105,16 +105,16 @@
 				</ol>
 			</div>
 			{#if $showSecret}
-			<div in:fade={{ delay: 0, duration: 200 }} class="flex flex-col gap-4">
-				<Header title="Interests" />
-				<div
-				class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-around text-center gap-y-8 mt-6 lg:mt-12"
-			>
-				{#each secrets as secret}
-					<Tech tech={secret} />
-				{/each}
-			</div>
-			</div>
+				<div in:fade={{ delay: 0, duration: 200 }} class="flex flex-col gap-4">
+					<Header title="Interests" />
+					<div
+						class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-around text-center gap-y-8 mt-6 lg:mt-12"
+					>
+						{#each secrets as secret}
+							<Tech tech={secret} />
+						{/each}
+					</div>
+				</div>
 			{/if}
 		</div>
 	</div>

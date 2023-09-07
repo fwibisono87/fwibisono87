@@ -22,6 +22,6 @@
 		<MdiInstagram class="w-8 h-8 border-b-2 hover:border-text border-transparent" />
 	</a>
 	<a href="/photos" rel="noreferrer">
-		<MaterialSymbolsPhotoCamera class="w-8 h-8 border-b-2 hover:border-text border-transparent" />
+		<MaterialSymbolsPhotoCamera class="w-8 h-8 border-b-2 border-red-600 hover:border-text border-transparent" />
 	</a>
 </div>
