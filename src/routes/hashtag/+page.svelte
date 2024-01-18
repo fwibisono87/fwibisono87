@@ -6,14 +6,15 @@
 	let eventAccount = '';
 	let eventYear = '';
 
-	const cameraString = 'Canon 600D';
-	const lenses = ['Canon 50mm f/1.8 STM', 'Tamron 18-200mm 18-200mm F/3.5-6.3'];
+	const cameras = ["Canon 600D", "Canon 350D", "Canon 6D", "Canon 6D MK 2"]
+	const lenses = ['Canon EF 50mm f/1.8 STM', 'Tamron 18-200mm 18-200mm F/3.5-6.3', 'Canon EF-S 24mm f/2.8 USM'];
 	type THastagPresets = {
 		title: string;
 		hashtags: string[];
 	};
 
 	let selectedLens = lenses[0];
+	let selectedCamera = cameras[0]
 
 	const presetHashtags = [
 		{
@@ -28,7 +29,7 @@
 		},
 		{
 			title: 'canon',
-			hashtags: ['canon600d', 'canonphotography', 'canonindonesia', 'shotoncanon']
+			hashtags: [ 'canonphotography', 'canonindonesia', 'shotoncanon']
 		},
 		{
 			title: 'hoyoverse',
@@ -41,6 +42,10 @@
 		{
 			title: 'genshin',
 			hashtags: ['genshin', 'genshincosplay']
+		},
+		{
+			title: 'hololive',
+			hashtags: ['hololive', 'hololivecosplay', 'ホロライブ']
 		}
 	];
 
@@ -88,10 +93,10 @@
 
 	let customHashtags = '';
 
-	$: finalCaption = `Cosplay of ${processedCharacterName} from ${processedFranchaise} by ${processedCosplayer}
+	$: finalCaption = `#cosplay of ${processedCharacterName} from ${processedFranchaise} by ${processedCosplayer}
 
 📅: ${processedEventString}
-📸: ${cameraString} | ${selectedLens}
+📸: ${selectedCamera} | ${selectedLens}
 
 ${allHashtags} ${customHashtags}`;
 
@@ -145,6 +150,14 @@ function copyToClipboard(text) {
 		class="border-2 border-black bg-gunmetal rounded-lg px-4 py-2 active:border-text"
 	/>
 	<select
+		bind:value={selectedCamera}
+		class="border-2 border-black bg-gunmetal rounded-lg px-4 py-2 active:border-text"
+	>
+		{#each cameras as camera}
+			<option value={camera}>{camera}</option>
+		{/each}
+	</select>
+	<select
 		bind:value={selectedLens}
 		class="border-2 border-black bg-gunmetal rounded-lg px-4 py-2 active:border-text"
 	>
@@ -168,6 +181,6 @@ function copyToClipboard(text) {
 		class="border-2 border-black bg-gunmetal rounded-lg px-4 py-2 active:border-text"
 	/>
 
-	<code class="block whitespace-pre overflow-x-scroll">{finalCaption} </code>
+	<code class="block whitespace-pre overflow-x-scroll w-4/5 mx-auto">{finalCaption} </code>
     <button on:click={() => copyToClipboard(finalCaption)}>Copy to Clipboard</button>
 </div>
