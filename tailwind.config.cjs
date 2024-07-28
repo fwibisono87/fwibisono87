@@ -1,30 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       colors: {
-        primary: '#1B1C1E',
-        text: '#ae865f',
-        dove: '#626262',
-        cadet: "#122752",
-        gunmetal: "#282d33"
+        'cadet': '#122752',
+        'lion': '#C49c6D',
+        'eerie': '#1a1a1a',
+        'platinum': '#e0e0e0',
+        'cream': '#ffffd9'
       },
-      animation: {
-        'pulse-slow': 'pulse 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      fontFamily: {
+        sans: ['Pridi', 'serif'],
       },
-      keyframes: {
-        'pulse-slow': {
-          
-            '0%, 100%': {
-              opacity: '1'
-            },
-            '50%': {
-              opacity: '.5'
-          }
-        }
-      }
     },
   },
-  plugins: [],
-}
+  plugins: [require('daisyui')],
+};
