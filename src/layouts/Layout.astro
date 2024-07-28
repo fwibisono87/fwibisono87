@@ -1,0 +1,103 @@
+---
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>{title}</title>
+  </head>
+  <body class="bg-eerie flex min-h-[100vh] justify-center text-cream">
+    <div class="frosted-glass sm:w-full lg:w-[75%] 2xl:w-[50%] flex text-center justify-center p-8 my-8">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style lang="postcss">
+  .frosted-glass {
+    background: rgba(30, 30, 36, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frosted-glass::before,
+
+  .frosted-glass::after {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background-image: var(--gradients);
+    background-repeat: repeat;
+    background-size: var(--bg-size, 400px 400px);
+    opacity: 0.3;
+    z-index: -1;
+  }
+
+
+  .frosted-glass::before {
+    animation: stars-move 300s linear infinite;
+  }
+
+  .frosted-glass::after {
+    animation: stars-move 400s linear infinite;
+  }
+
+  @keyframes stars-move {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-200px);
+    }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.4; }
+  }
+
+  .frosted-glass::before,
+  .frosted-glass::after {
+    animation: stars-move 30s linear infinite, twinkle 4s ease-in-out infinite;
+  }
+</style>
+
+<script>
+function randomizeBackgroundPositions() {
+    const element = document.querySelector('.frosted-glass');
+    const gradients = [];
+    const numGradients = Math.floor(Math.random() * 10) + 5; // 5 to 14 gradients
+    
+    for (let i = 0; i < numGradients; i++) {
+      const x = Math.floor(Math.random() * 400); // Increased range
+      const y = Math.floor(Math.random() * 200); // Increased range
+      const size = Math.floor(Math.random() * 6) + 1; // 1px to 3px
+      const opacity = Math.random() * 0.5 + 0.5; // 0.5 to 1
+      const hue = Math.floor(Math.random() * 30) - 15; // Slight color variation
+      
+      gradients.push(`radial-gradient(
+        ${size}px ${size}px at ${x}px ${y}px,
+        hsla(33, 48%, 54%, ${opacity}), 
+        rgba(0,0,0,0)
+      )`);
+    }
+    
+    element.style.setProperty('--gradients', gradients.join(','));
+    element.style.setProperty('--bg-size', `${Math.floor(Math.random() * 200) + 300}px ${Math.floor(Math.random() * 200) + 300}px`);
+  }
+
+  // Call this function when the component mounts
+  randomizeBackgroundPositions();
+
+  // Optionally, call this function periodically to change positions
+  // setInterval(randomizeBackgroundPositions, 5000); // Changes every 5 seconds
+</script>
