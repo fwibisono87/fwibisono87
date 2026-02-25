@@ -1,8 +1,15 @@
 [
     {
+        "company": "Center for Computer Science, Universitas Indonesia",
+        "position": "Software Engineer",
+        "duration": "October 2024 - Present",
+        "location": "Depok, West Java, Indonesia",
+        "description": "Building various projects for clients, including MinerbaOne, a management app for the Ministry of Energy and Mineral Resources, SIMPEL-HPE, an app for the Faculty of Engineering,  and SLCM UI, a student management app for Universitas Indonesia."
+    },
+    {
         "company": "Rumah Siap Kerja",
         "position": "Junior Frontend Engineer",
-        "duration": "October 2022 - Present",
+        "duration": "October 2022 - October 2024",
         "location": "Jakarta Metropolitan Area",
         "description": "Migrating components, libraries, and pages from the old Vue Options API to Nuxt 3 and Compositions API"
     },

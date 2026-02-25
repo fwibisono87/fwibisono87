@@ -1,30 +1,200 @@
 [
     {
         "id": 1,
-        "title": "Svelte",
-        "desc": "Svelte is known for its lightweight and efficient approach to building web applications, as well as its intuitive syntax and ability to create reactive components.",
-        "img": "/img/skills/svelte.webp",
-        "url": "https://svelte.dev"
+        "category": "core",
+        "title": "CSS",
+        "desc": "Cascading Style Sheets is a stylesheet language used for describing the look and formatting of a document written in HTML.",
+        "url": "https://www.w3.org/Style/CSS/",
+        "img": "/img/skills/css.svg"
     },
     {
         "id": 2,
-        "title": "Tailwind CSS",
-        "desc": "Tailwind CSS is a utility-first CSS framework that lets you build custom designs quickly and efficiently using pre-designed CSS classes. Result: clean, scalable, maintainable code.",
-        "img": "/img/skills/tailwind.svg",
-        "url": "https://tailwindcss.com"
+        "category": "core",
+        "title": "HTML",
+        "desc": "Hypertext Markup Language is the standard markup language for creating web pages.",
+        "url": "https://www.w3.org/html/",
+        "img": "/img/skills/html.svg"
     },
     {
         "id": 3,
-        "title": "Netlify",
-        "desc": "Netlify is a cloud-based platform that makes it easy to deploy and host modern web applications. It offers continuous deployment, global CDN, and powerful features for building, deploying, and managing your applications.",
-        "img": "/img/skills/netlify.svg",
-        "url": "https://www.netlify.com/"
+        "category": "core",
+        "title": "JavaScript",
+        "desc": "JavaScript is a programming language that is commonly used to create interactive effects within web browsers.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+        "img": "/img/skills/js.svg"
     },
     {
         "id": 4,
+        "category": "core",
         "title": "TypeScript",
-        "desc": "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. It adds optional static typing and class-based object-oriented programming to JavaScript.",
+        "desc": "TypeScript is a programming language that is a super set of JavaScript, offering static typing and other features.",
+        "url": "https://www.typescriptlang.org/",
         "img": "/img/skills/ts.svg",
-        "url": "https://www.linux.com/"
+        "whyILike": "Forces you to code clean (well, cleaner), and helps you avoid problems later on."
+    },
+    {
+        "id": 5,
+        "category": "framework",
+        "title": "Nuxt.js",
+        "desc": "Nuxt.js is a framework for creating server-rendered Vue.js applications.",
+        "url": "https://nuxtjs.org/",
+        "img": "/img/skills/nuxt.svg"
+    },
+    {
+        "id": 6,
+        "category": "framework",
+        "title": "Svelte.js",
+        "desc": "Svelte.js is a framework for building web applications with a reactive architecture.",
+        "url": "https://svelte.dev/",
+        "img": "/img/skills/svelte.webp"
+    },
+    {
+        "id": 7,
+        "category": "framework",
+        "title": "Tailwind CSS",
+        "desc": "Tailwind CSS is a utility-first CSS framework for rapidly building custom designs.",
+        "url": "https://tailwindcss.com/",
+        "img": "/img/skills/tailwind.svg"
+    },
+    {
+        "id": 8,
+        "category": "framework",
+        "title": "Vue.js",
+        "desc": "Vue.js is a progressive JavaScript framework for building user interfaces.",
+        "url": "https://vuejs.org/",
+        "img": "/img/skills/vue.svg"
+    },
+    {
+        "id": 9,
+        "category": "framework",
+        "title": "Nuxt UI",
+        "desc": "Nuxt UI is a component library for Nuxt that provides customizable, accessible UI components designed to speed up full-stack Vue and Nuxt development.",
+        "url": "https://ui.nuxt.com/",
+        "img": "/img/skills/nuxt-ui.svg"
+    },
+    {
+        "id": 10,
+        "category": "framework",
+        "title": "Vuetify",
+        "desc": "Vuetify is a Vue UI framework that implements Material Design components, helping teams build consistent and responsive application interfaces quickly.",
+        "url": "https://vuetifyjs.com/",
+        "img": "/img/skills/vuetify.svg"
+    },
+    {
+        "id": 11,
+        "category": "framework",
+        "title": "Go Fiber",
+        "desc": "Fiber is an Express-inspired web framework for Go focused on high performance, low memory usage, and developer-friendly APIs.",
+        "url": "https://gofiber.io/",
+        "img": "/img/skills/gofiber.svg"
+    },
+    {
+        "id": 12,
+        "category": "framework",
+        "title": "ElysiaJS",
+        "desc": "ElysiaJS is a modern web framework built for Bun that emphasizes end-to-end type safety, speed, and an ergonomic developer experience.",
+        "url": "https://elysiajs.com/",
+        "img": "/img/skills/elysiajs.svg"
+    },
+    {
+        "id": 13,
+        "category": "backend",
+        "title": "Django",
+        "desc": "Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+        "url": "https://www.djangoproject.com/",
+        "img": "/img/skills/django.svg"
+    },
+    {
+        "id": 14,
+        "category": "backend",
+        "title": "Node.js",
+        "desc": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine for building scalable network applications.",
+        "url": "https://nodejs.org/en/",
+        "img": "/img/skills/node.svg"
+    },
+    {
+        "id": 15,
+        "category": "backend",
+        "title": "Python",
+        "desc": "Python is a high-level, interpreted programming language with a strong emphasis on readability and simplicity.",
+        "url": "https://www.python.org/",
+        "img": "/img/skills/python.svg"
+    },
+    {
+        "id": 16,
+        "category": "backend",
+        "title": "Golang",
+        "desc": "Golang (Go) is a statically typed, compiled language designed for simplicity, performance, and reliable concurrent programming.",
+        "url": "https://go.dev/",
+        "img": "/img/skills/golang.svg"
+    },
+    {
+        "id": 17,
+        "category": "tools",
+        "title": "Arch Linux",
+        "desc": "Arch Linux is a lightweight, rolling-release distribution designed for experienced users and developers.",
+        "url": "https://archlinux.org/",
+        "img": "/img/skills/arch.svg"
+    },
+    {
+        "id": 18,
+        "category": "tools",
+        "title": "Docker",
+        "desc": "Docker is a tool designed to make it easier to create, deploy, and run applications by using containers.",
+        "url": "https://www.docker.com/",
+        "img": "/img/skills/docker.webp"
+    },
+    {
+        "id": 19,
+        "category": "tools",
+        "title": "Git",
+        "desc": "Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people.",
+        "url": "https://git-scm.com/",
+        "img": "/img/skills/git.svg"
+    },
+    {
+        "id": 20,
+        "category": "tools",
+        "title": "Nginx",
+        "desc": "Nginx is a web server that can also be used as a reverse proxy, load balancer, and HTTP cache.",
+        "url": "https://www.nginx.com/",
+        "img": "/img/skills/nginx.svg",
+        "whyILike": "Lightweight way to serve web apps, and as a reverse proxy. I use it to run many services out of a single, light VM."
+    },
+    {
+        "id": 21,
+        "category": "tools",
+        "title": "Ubuntu Linux",
+        "desc": "Ubuntu is a free, open-source operating system based on the Linux kernel.",
+        "url": "https://ubuntu.com/",
+        "img": "/img/skills/ubuntu.svg"
+    },
+    {
+        "id": 22,
+        "category": "tools",
+        "title": "Keycloak",
+        "desc": "Keycloak is an open-source identity and access management solution that provides single sign-on, user federation, and role-based access control for applications and services.",
+        "url": "https://www.keycloak.org/",
+        "img": "/img/skills/keycloak.svg",
+        "whyILike": "Simple out of the box, powerful when configured, and open source",
+        "projects": ["MinerbaOne (2025)","SIMPEL-HPE (2026)", "SLCM UI (2026)"]
+    },
+    {
+        "id": 23,
+        "category": "tools",
+        "title": "MinIO",
+        "desc": "MinIO is a high-performance, S3-compatible object storage server often used for private cloud storage, backups, and data-intensive workloads.",
+        "url": "https://min.io/",
+        "img": "/img/skills/minio.svg",
+        "whyILike": "Simple, AWS S3-like, (used to be) free and open source, and super easy to deploy, both for dev purposes and for production",
+        "projects": ["MinerbaOne (2025)", "SIMPEL-HPE (2026)", "SLCM UI (2026)"]
+    },
+    {
+        "id": 24,
+        "category": "tools",
+        "title": "Docker Compose",
+        "desc": "Docker Compose is a tool for defining and running multi-container applications using a single declarative YAML configuration file.",
+        "url": "https://docs.docker.com/compose/",
+        "img": "/img/skills/docker-compose.png"
     }
 ]
