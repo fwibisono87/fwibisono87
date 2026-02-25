@@ -30,7 +30,7 @@
 			<div
 				class="head flex items-center justify-between border-b border-[#5f86bd]/50 px-5 py-4 text-lg font-extrabold text-[#f7fbff] sm:px-8 sm:text-2xl"
 			>
-				{title}
+				<h4>{title}</h4>
 				<button
 					type="button"
 					class="retro-icon-link p-2"

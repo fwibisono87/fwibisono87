@@ -1,4 +1,4 @@
-import { c as create_ssr_component, f as escape, b as spread, e as escape_object, i as createEventDispatcher, v as validate_component, g as add_attribute, d as subscribe, j as each } from "../../chunks/index.js";
+import { c as create_ssr_component, f as escape, b as spread, e as escape_object, i as createEventDispatcher, v as validate_component, g as add_attribute, j as each, d as subscribe } from "../../chunks/index.js";
 import { s as showSecret } from "../../chunks/stores.js";
 const Buzzword = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   const buzzwords = ["Blazing Fast", "Modern", "Reactive", "Beautiful", "Functional", "Serverless"];
@@ -38,14 +38,61 @@ const Modal = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.open(open);
   if ($$props.title === void 0 && $$bindings.title && title !== void 0)
     $$bindings.title(title);
-  return `${open ? `<div class="${"modal z-50 fixed inset-0 flex items-center justify-center p-4 sm:p-8"}"><button type="${"button"}" class="${"modal-overlay fixed inset-0 bg-[#020611]/80 backdrop-blur-sm"}" aria-label="${"Close modal"}"></button>
+  return `${open ? `<div class="${"modal z-50 fixed inset-0 flex items-center justify-center p-4 sm:p-8"}"><button type="${"button"}" class="${"modal-overlay fixed inset-0 bg-[#020611]/80 backdrop-blur-sm rounded-2xl"}" aria-label="${"Close modal"}"></button>
 		<div class="${"retro-frame z-50 mx-auto max-h-[85vh] w-full overflow-y-auto lg:h-max lg:w-1/2"}"><div class="${"head flex items-center justify-between border-b border-[#5f86bd]/50 px-5 py-4 text-lg font-extrabold text-[#f7fbff] sm:px-8 sm:text-2xl"}">${escape(title)}
 				<button type="${"button"}" class="${"retro-icon-link p-2"}" aria-label="${"Close modal"}">${validate_component(Close, "CarbonClose").$$render($$result, { class: "h-5 w-5" }, {}, {})}</button></div>
 			<div class="${"content p-5 sm:p-8"}">${slots.body ? slots.body({}) : ``}</div></div></div>` : ``}`;
 });
+const Calendar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<svg${spread(
+    [
+      { viewBox: "0 0 32 32" },
+      { width: "1.2em" },
+      { height: "1.2em" },
+      escape_object($$props)
+    ],
+    {}
+  )}><!-- HTML_TAG_START -->${`<path fill="currentColor" d="M26 4h-4V2h-2v2h-8V2h-2v2H6c-1.1 0-2 .9-2 2v20c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 22H6V12h20v14zm0-16H6V6h4v2h2V6h8v2h2V6h4v4z"/>`}<!-- HTML_TAG_END --></svg>`;
+});
+const Folder = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<svg${spread(
+    [
+      { viewBox: "0 0 32 32" },
+      { width: "1.2em" },
+      { height: "1.2em" },
+      escape_object($$props)
+    ],
+    {}
+  )}><!-- HTML_TAG_START -->${`<path fill="currentColor" d="m11.17 6l3.42 3.41l.58.59H28v16H4V6h7.17m0-2H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2H16l-3.41-3.41A2 2 0 0 0 11.17 4Z"/>`}<!-- HTML_TAG_END --></svg>`;
+});
+const Idea = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<svg${spread(
+    [
+      { viewBox: "0 0 32 32" },
+      { width: "1.2em" },
+      { height: "1.2em" },
+      escape_object($$props)
+    ],
+    {}
+  )}><!-- HTML_TAG_START -->${`<path fill="currentColor" d="M11 24h10v2H11zm2 4h6v2h-6zm3-26A10 10 0 0 0 6 12a9.19 9.19 0 0 0 3.46 7.62c1 .93 1.54 1.46 1.54 2.38h2c0-1.84-1.11-2.87-2.19-3.86A7.2 7.2 0 0 1 8 12a8 8 0 0 1 16 0a7.2 7.2 0 0 1-2.82 6.14c-1.07 1-2.18 2-2.18 3.86h2c0-.92.53-1.45 1.54-2.39A9.18 9.18 0 0 0 26 12A10 10 0 0 0 16 2z"/>`}<!-- HTML_TAG_END --></svg>`;
+});
+const Launch = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<svg${spread(
+    [
+      { viewBox: "0 0 32 32" },
+      { width: "1.2em" },
+      { height: "1.2em" },
+      escape_object($$props)
+    ],
+    {}
+  )}><!-- HTML_TAG_START -->${`<path fill="currentColor" d="M26 28H6a2.003 2.003 0 0 1-2-2V6a2.003 2.003 0 0 1 2-2h10v2H6v20h20V16h2v10a2.003 2.003 0 0 1-2 2Z"/><path fill="currentColor" d="M20 2v2h6.586L18 12.586L19.414 14L28 5.414V12h2V2H20z"/>`}<!-- HTML_TAG_END --></svg>`;
+});
 const Tech = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { tech } = $$props;
   let showModal = false;
+  const hasProjects = (projects2) => {
+    return Array.isArray(projects2) && projects2.length > 0;
+  };
   if ($$props.tech === void 0 && $$bindings.tech && tech !== void 0)
     $$bindings.tech(tech);
   return `<div class="${"w-full"}"><button type="${"button"}" class="${"group retro-card flex h-full min-h-[10rem] w-full flex-col items-center justify-center gap-3 px-3 py-4 text-center transition duration-200 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8fd0ff]/70"}"${add_attribute("title", tech.title, 0)}${add_attribute("aria-label", `Open ${tech.title} details`, 0)}><div class="${"flex h-16 w-16 items-center justify-center"}"><img${add_attribute("src", tech.img, 0)} class="${"mx-auto my-auto max-h-16 max-w-16 sepia transition duration-300 group-hover:sepia-0 group-focus-visible:sepia-0"}"${add_attribute("alt", tech.title, 0)}></div>
@@ -53,8 +100,30 @@ const Tech = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 		<span class="${"text-sm font-semibold uppercase tracking-[0.08em] text-slate-100"}">${escape(tech.title)}</span></button>
 	${validate_component(Modal, "Modal").$$render($$result, { title: tech.title, open: showModal }, {}, {
     body: () => {
-      return `<div class="${"flex flex-col items-center gap-4 text-slate-200 sm:flex-row sm:items-start sm:gap-6"}"><img${add_attribute("src", tech.img, 0)}${add_attribute("alt", tech.title, 0)} class="${"my-auto max-h-24 w-24"}">
-				<p class="${"text-left leading-relaxed"}"><!-- HTML_TAG_START -->${tech.desc}<!-- HTML_TAG_END --></p></div>`;
+      return `<div class="${"flex flex-col gap-4 text-slate-200"}"><div class="${"flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:gap-6"}"><img${add_attribute("src", tech.img, 0)}${add_attribute("alt", tech.title, 0)} class="${"my-auto max-h-24 w-24"}">
+					<div class="${"flex flex-col gap-3"}"><p class="${"text-left leading-relaxed"}"><!-- HTML_TAG_START -->${tech.desc}<!-- HTML_TAG_END --></p>
+						${tech.url ? `<a class="${"retro-button inline-flex w-fit items-center gap-2 px-3 py-2 text-sm font-medium"}"${add_attribute("href", tech.url, 0)} target="${"_blank"}" rel="${"noreferrer"}">${validate_component(Launch, "CarbonLaunch").$$render($$result, { class: "h-4 w-4" }, {}, {})}
+								Open Official Site
+							</a>` : ``}</div></div>
+
+				${tech.lastUsed || hasProjects(tech.projects) || tech.whyILike ? `<div class="${"retro-divider mt-1"}"></div>` : ``}
+
+				${tech.lastUsed ? `<section class="${"retro-card px-4 py-3"}"><p class="${"inline-flex items-center gap-2 font-mono text-[0.66rem] uppercase tracking-[0.12em] text-[#a3d6ff]"}">${validate_component(Calendar, "CarbonCalendar").$$render($$result, { class: "h-4 w-4" }, {}, {})}
+							Last Used
+						</p>
+						<p class="${"mt-2 text-sm text-slate-100 sm:text-base"}">${escape(tech.lastUsed)}</p></section>` : ``}
+
+				${hasProjects(tech.projects) ? `<section class="${"retro-card px-4 py-3"}"><p class="${"inline-flex items-center gap-2 font-mono text-[0.66rem] uppercase tracking-[0.12em] text-[#a3d6ff]"}">${validate_component(Folder, "CarbonFolder").$$render($$result, { class: "h-4 w-4" }, {}, {})}
+							Projects
+						</p>
+						<ul class="${"mt-2 list-disc space-y-1 pl-5 text-sm text-slate-100 sm:text-base"}">${each(tech.projects, (projectName) => {
+        return `<li>${escape(projectName)}</li>`;
+      })}</ul></section>` : ``}
+
+				${tech.whyILike ? `<section class="${"retro-card px-4 py-3"}"><p class="${"inline-flex items-center gap-2 font-mono text-[0.66rem] uppercase tracking-[0.12em] text-[#a3d6ff]"}">${validate_component(Idea, "CarbonIdea").$$render($$result, { class: "h-4 w-4" }, {}, {})}
+							Why I Like It
+						</p>
+						<p class="${"mt-2 text-sm leading-relaxed text-slate-100 sm:text-base"}">${escape(tech.whyILike)}</p></section>` : ``}</div>`;
     }
   })}</div>`;
 });
@@ -261,7 +330,7 @@ const Experience = create_ssr_component(($$result, $$props, $$bindings, slots) =
   dateParts = splitDateLabel(experience2.duration);
   return `<li class="${"mb-8 ml-8 text-slate-100 last:mb-0"}"><span class="${"absolute -left-[1.05rem] top-6 flex h-8 w-8 items-center justify-center rounded-full border border-[#83bdfc]/70 bg-[#0b2f63] text-[#d9ebff] shadow-[0_0_12px_rgba(98,171,255,0.45)]"}">${validate_component(Trophy, "CarbonTrophy").$$render($$result, {}, {}, {})}</span>
 	<article class="${"retro-card px-4 py-4 sm:px-5 sm:py-5"}"><div class="${"flex flex-col gap-3 xl:flex-row xl:items-start xl:justify-between"}"><h3 class="${"text-base font-semibold uppercase tracking-[0.08em] text-[#f7fbff] sm:text-lg"}">${escape(experience2.company)}</h3>
-			<time class="${"retro-date-badge xl:ml-4 xl:items-end xl:text-right"}"><span class="${"retro-date-range"}">${escape(dateParts.range)}</span>
+			<time class="${"retro-date-badge flex xl:ml-4 xl:items-end xl:text-right px-4 py-2"}"><span class="${"retro-date-range"}">${escape(dateParts.range)}</span>
 				${dateParts.duration ? `<span class="${"retro-date-duration"}">${escape(dateParts.duration)}</span>` : ``}</time></div>
 
 		<span class="${"mt-3 block text-sm font-semibold text-[#e5f0ff] sm:text-base"}">${escape(experience2.position)}</span>
@@ -332,47 +401,47 @@ const experience = [
 const framework = [
   {
     id: 1,
-    title: "Vue.js",
-    desc: "Vue.js is a progressive JavaScript framework for building user interfaces.",
-    url: "https://vuejs.org/",
-    img: "/img/skills/vue.svg"
-  },
-  {
-    id: 2,
     title: "Nuxt.js",
     desc: "Nuxt.js is a framework for creating server-rendered Vue.js applications.",
     url: "https://nuxtjs.org/",
     img: "/img/skills/nuxt.svg"
   },
   {
-    id: 3,
+    id: 2,
     title: "Svelte.js",
     desc: "Svelte.js is a framework for building web applications with a reactive architecture.",
     url: "https://svelte.dev/",
     img: "/img/skills/svelte.webp"
   },
   {
-    id: 4,
+    id: 3,
     title: "Tailwind CSS",
     desc: "Tailwind CSS is a utility-first CSS framework for rapidly building custom designs.",
     url: "https://tailwindcss.com/",
     img: "/img/skills/tailwind.svg"
+  },
+  {
+    id: 4,
+    title: "Vue.js",
+    desc: "Vue.js is a progressive JavaScript framework for building user interfaces.",
+    url: "https://vuejs.org/",
+    img: "/img/skills/vue.svg"
   }
 ];
 const core = [
   {
     id: 1,
-    title: "HTML",
-    desc: "Hypertext Markup Language is the standard markup language for creating web pages.",
-    url: "https://www.w3.org/html/",
-    img: "/img/skills/html.svg"
-  },
-  {
-    id: 2,
     title: "CSS",
     desc: "Cascading Style Sheets is a stylesheet language used for describing the look and formatting of a document written in HTML.",
     url: "https://www.w3.org/Style/CSS/",
     img: "/img/skills/css.svg"
+  },
+  {
+    id: 2,
+    title: "HTML",
+    desc: "Hypertext Markup Language is the standard markup language for creating web pages.",
+    url: "https://www.w3.org/html/",
+    img: "/img/skills/html.svg"
   },
   {
     id: 3,
@@ -392,61 +461,61 @@ const core = [
 const other = [
   {
     id: 1,
-    title: "Python",
-    desc: "Python is a high-level, interpreted programming language with a strong emphasis on readability and simplicity.",
-    url: "https://www.python.org/",
-    img: "/img/skills/python.svg"
-  },
-  {
-    id: 2,
     title: "Django",
     desc: "Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.",
     url: "https://www.djangoproject.com/",
     img: "/img/skills/django.svg"
   },
   {
-    id: 3,
+    id: 2,
     title: "Node.js",
     desc: "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine for building scalable network applications.",
     url: "https://nodejs.org/en/",
     img: "/img/skills/node.svg"
+  },
+  {
+    id: 3,
+    title: "Python",
+    desc: "Python is a high-level, interpreted programming language with a strong emphasis on readability and simplicity.",
+    url: "https://www.python.org/",
+    img: "/img/skills/python.svg"
   }
 ];
 const tools = [
   {
     id: 1,
-    title: "Git",
-    desc: "Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people.",
-    url: "https://git-scm.com/",
-    img: "/img/skills/git.svg"
-  },
-  {
-    id: 2,
-    title: "Ubuntu Linux",
-    desc: "Ubuntu is a free, open-source operating system based on the Linux kernel.",
-    url: "https://ubuntu.com/",
-    img: "/img/skills/ubuntu.svg"
-  },
-  {
-    id: 3,
     title: "Arch Linux",
     desc: "Arch Linux is a lightweight, rolling-release distribution designed for experienced users and developers.",
     url: "https://archlinux.org/",
     img: "/img/skills/arch.svg"
   },
   {
-    id: 4,
+    id: 2,
     title: "Docker",
     desc: "Docker is a tool designed to make it easier to create, deploy, and run applications by using containers.",
     url: "https://www.docker.com/",
     img: "/img/skills/docker.webp"
   },
   {
-    id: 5,
+    id: 3,
+    title: "Git",
+    desc: "Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people.",
+    url: "https://git-scm.com/",
+    img: "/img/skills/git.svg"
+  },
+  {
+    id: 4,
     title: "Nginx",
     desc: "Nginx is a web server that can also be used as a reverse proxy, load balancer, and HTTP cache.",
     url: "https://www.nginx.com/",
     img: "/img/skills/nginx.svg"
+  },
+  {
+    id: 5,
+    title: "Ubuntu Linux",
+    desc: "Ubuntu is a free, open-source operating system based on the Linux kernel.",
+    url: "https://ubuntu.com/",
+    img: "/img/skills/ubuntu.svg"
   }
 ];
 const projects = [

@@ -12,13 +12,60 @@
 	import { fade } from 'svelte/transition';
 
 	import experience from '../data/experience.json';
-	import framework from '../data/framework.json';
-	import core from '../data/core.json';
-	import other from '../data/other.json';
-	import tools from '../data/tools.json';
+	import technologiesData from '../data/tech.json';
 	import projects from '../data/projects.json';
 	import secrets from '../data/secret.json';
 	import { onMount } from 'svelte';
+
+	type TechnologyCategory = 'core' | 'framework' | 'backend' | 'tools';
+
+	type Technology = {
+		id: number;
+		category: TechnologyCategory;
+		desc: string;
+		title: string;
+		img: string;
+		url: string;
+		lastUsed?: string;
+		projects?: string[];
+		whyILike?: string;
+	};
+
+	type TechnologyGroup = {
+		id: TechnologyCategory;
+		label: string;
+		blurb: string;
+		items: Technology[];
+	};
+
+	const technologies = technologiesData as Technology[];
+
+	const technologyGroups: TechnologyGroup[] = [
+		{
+			id: 'core',
+			label: 'Core Web',
+			blurb: 'Language fundamentals.',
+			items: technologies.filter((item) => item.category === 'core')
+		},
+		{
+			id: 'framework',
+			label: 'Frameworks & UI',
+			blurb: 'App and interface frameworks.',
+			items: technologies.filter((item) => item.category === 'framework')
+		},
+		{
+			id: 'backend',
+			label: 'Backend & Runtime',
+			blurb: 'Server-side ecosystem.',
+			items: technologies.filter((item) => item.category === 'backend')
+		},
+		{
+			id: 'tools',
+			label: 'Tools & Infra',
+			blurb: 'DevOps and platform tooling.',
+			items: technologies.filter((item) => item.category === 'tools')
+		}
+	];
 
 	let scrollY: number = 0;
 	let height: number;
@@ -112,20 +159,24 @@
 				cta="Click to inspect each stack module."
 				ctaMobile="Tap each module."
 			/>
-			<div
-				class="mt-6 grid grid-cols-2 gap-4 text-center sm:grid-cols-3 sm:gap-5 lg:grid-cols-4 xl:grid-cols-6"
-			>
-				{#each core as tech}
-					<Tech {tech} />
-				{/each}
-				{#each framework as tech}
-					<Tech {tech} />
-				{/each}
-				{#each other as tech}
-					<Tech {tech} />
-				{/each}
-				{#each tools as tech}
-					<Tech {tech} />
+			<div class="mt-6 space-y-6">
+				{#each technologyGroups as group}
+					<section class="space-y-3">
+						<div class="flex flex-wrap items-center justify-between gap-2">
+							<span
+								class="retro-chip inline-flex rounded-full text-sm px-3 py-1 leading-none"
+								>{group.label}</span
+							>
+							<p class="text-slate-400">{group.blurb}</p>
+						</div>
+						<div
+							class="grid grid-cols-2 gap-4 text-sm text-center sm:grid-cols-3 sm:gap-5 lg:grid-cols-4 xl:grid-cols-6"
+						>
+							{#each group.items as tech}
+								<Tech {tech} />
+							{/each}
+						</div>
+					</section>
 				{/each}
 			</div>
 		</section>
