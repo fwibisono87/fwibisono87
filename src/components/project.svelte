@@ -15,6 +15,28 @@
 	};
 
 	export let project: Project;
+
+	type DateParts = {
+		range: string;
+		duration: string | null;
+	};
+
+	const splitDateLabel = (label: string): DateParts => {
+		const trimmed = label.trim();
+		const match = trimmed.match(/^(.*?)(?:\s*\(([^()]*)\))\s*$/);
+		if (!match) {
+			return { range: trimmed, duration: null };
+		}
+
+		const range = match[1].trim();
+		const duration = match[2].trim();
+		return {
+			range: range || trimmed,
+			duration: duration || null
+		};
+	};
+
+	$: dateParts = splitDateLabel(project.date);
 </script>
 
 <li class="mb-8 ml-8 text-slate-100 last:mb-0">
@@ -24,13 +46,16 @@
 		<CarbonRocket class="rotate-180" />
 	</span>
 	<article class="retro-card px-4 py-4 sm:px-5 sm:py-5">
-		<div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+		<div class="flex flex-col gap-3 xl:flex-row xl:items-start xl:justify-between">
 			<h3 class="text-base font-semibold uppercase tracking-[0.08em] text-[#f7fbff] sm:text-lg">
 				{project.title}
 			</h3>
-			<time class="retro-chip inline-flex w-fit rounded-full px-3 py-1 text-[0.62rem] leading-none"
-				>{project.date}</time
-			>
+			<time class="retro-date-badge xl:ml-4 xl:items-end xl:text-right">
+				<span class="retro-date-range">{dateParts.range}</span>
+				{#if dateParts.duration}
+					<span class="retro-date-duration">{dateParts.duration}</span>
+				{/if}
+			</time>
 		</div>
 		<p class="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
 			{project.details}

@@ -1,4 +1,4 @@
-import { c as create_ssr_component, h as add_attribute, i as each, e as escape } from "../../../chunks/index.js";
+import { c as create_ssr_component, g as add_attribute, j as each, f as escape } from "../../../chunks/index.js";
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let processedCharacterName;
   let processedFranchaise;

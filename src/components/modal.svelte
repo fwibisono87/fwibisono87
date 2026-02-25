@@ -18,7 +18,7 @@
 	<div class="modal z-50 fixed inset-0 flex items-center justify-center p-4 sm:p-8">
 		<button
 			type="button"
-			class="modal-overlay fixed inset-0 bg-[#020611]/80 backdrop-blur-sm"
+			class="modal-overlay fixed inset-0 bg-[#020611]/80 backdrop-blur-sm rounded-2xl"
 			transition:fade
 			on:click={closeModal}
 			aria-label="Close modal"
