@@ -6,17 +6,22 @@
 	let eventAccount = '';
 	let eventYear = '';
 
-	const cameras = ["Canon 600D", "Canon 350D", "Canon 6D", "Canon 6D MK 2"]
-	const lenses = ['Canon EF 50mm f/1.8 STM', 'Tamron 18-200mm 18-200mm F/3.5-6.3', 'Canon EF-S 24mm f/2.8 USM'];
-	type THastagPresets = {
+	type THashtagPreset = {
 		title: string;
 		hashtags: string[];
 	};
 
-	let selectedLens = lenses[0];
-	let selectedCamera = cameras[0]
+	const cameras = ['Canon 600D', 'Canon 350D', 'Canon 6D', 'Canon 6D MK 2'];
+	const lenses = [
+		'Canon EF 50mm f/1.8 STM',
+		'Tamron 18-200mm 18-200mm F/3.5-6.3',
+		'Canon EF-S 24mm f/2.8 USM'
+	];
 
-	const presetHashtags = [
+	let selectedLens = lenses[0];
+	let selectedCamera = cameras[0];
+
+	const presetHashtags: THashtagPreset[] = [
 		{
 			title: 'cosplay',
 			hashtags: [
@@ -29,7 +34,7 @@
 		},
 		{
 			title: 'canon',
-			hashtags: [ 'canonphotography', 'canonindonesia', 'shotoncanon']
+			hashtags: ['canonphotography', 'canonindonesia', 'shotoncanon']
 		},
 		{
 			title: 'hoyoverse',
@@ -49,10 +54,10 @@
 		}
 	];
 
-	let selectedCategories = new Set();
-	let selectedHashtags = [];
+	let selectedCategories = new Set<string>();
+	let selectedHashtags: string[] = [];
 
-	function toggleCategory(category) {
+	function toggleCategory(category: THashtagPreset) {
 		if (selectedCategories.has(category.title)) {
 			selectedCategories.delete(category.title);
 		} else {
@@ -100,19 +105,14 @@
 
 ${allHashtags} ${customHashtags}`;
 
-function copyToClipboard(text) {
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-    }
+	async function copyToClipboard(text: string) {
+		await navigator.clipboard.writeText(text);
+	}
 </script>
 
 <div class="py-8 flex flex-col gap-4">
-    <h2>fwibisono87's</h2>
-    <h1 class="text-2xl font-semibold">IG Caption Generator</h1>
+	<h2>fwibisono87's</h2>
+	<h1 class="text-2xl font-semibold">IG Caption Generator</h1>
 	<input
 		type="text"
 		bind:value={characterName}
@@ -182,5 +182,5 @@ function copyToClipboard(text) {
 	/>
 
 	<code class="block whitespace-pre overflow-x-scroll w-4/5 mx-auto">{finalCaption} </code>
-    <button on:click={() => copyToClipboard(finalCaption)}>Copy to Clipboard</button>
+	<button on:click={() => copyToClipboard(finalCaption)}>Copy to Clipboard</button>
 </div>

@@ -1,15 +1,6 @@
 <script>
 	import '../app.css';
-	import * as animateScroll from 'svelte-scrollto';
-	import MajesticonsShootingStar from '~icons/majesticons/shooting-star';
 	import Footer from '../components/footer.svelte';
-	import { showSecret } from '../stores';
-
-	function handleSecret() {
-		showSecret.update((b) => !b);
-	}
-
-	let scrollY = 0;
 </script>
 
 <div>
@@ -20,5 +11,3 @@
 	</div>
 	<Footer />
 </div>
-
-<svelte:window bind:scrollY />

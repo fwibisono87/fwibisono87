@@ -27,6 +27,8 @@
 	class="text-4xl font-semibold cursor-wait animate-pulse-slow text-dove"
 	on:mouseover={handleBuzzwordMouseIn}
 	on:mouseleave={handleBuzzwordMouseOut}
+	on:focus={handleBuzzwordMouseIn}
+	on:blur={handleBuzzwordMouseOut}
 >
 	{buzzword}
 </h3>
