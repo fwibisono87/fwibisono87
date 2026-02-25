@@ -7,27 +7,56 @@
 	import CarbonHashtag from '~icons/carbon/hashtag';
 </script>
 
-<div class="flex flex-col gap-4 justify-around">
-	<div class="flex flex-row gap-4 mx-auto">
-		<a href="mailto:code@franciswibisono.com" target="_blank" rel="noreferrer">
-			<CarbonEmail class="w-8 h-8 border-b-2 hover:border-text border-transparent cursor-pointer" />
+<div class="flex flex-col gap-3 justify-around">
+	<div class="flex flex-row flex-wrap gap-3 justify-center lg:justify-start">
+		<a
+			href="mailto:code@franciswibisono.com"
+			target="_blank"
+			rel="noreferrer"
+			aria-label="Send email"
+			class="retro-icon-link p-2.5"
+		>
+			<CarbonEmail class="h-6 w-6" />
 		</a>
-		<a href="https://www.github.com/fwibisono87" target="_blank" rel="noreferrer">
-			<CarbonLogoGithub class="w-8 h-8 border-b-2 hover:border-text border-transparent" />
+		<a
+			href="https://www.github.com/fwibisono87"
+			target="_blank"
+			rel="noreferrer"
+			aria-label="Open GitHub"
+			class="retro-icon-link p-2.5"
+		>
+			<CarbonLogoGithub class="h-6 w-6" />
 		</a>
-		<a href="https://www.linkedin.com/in/francis-wibisono/" target="_blank" rel="noreferrer">
-			<CarbonLogoLinkedin class="w-8 h-8 border-b-2 hover:border-text border-transparent" />
+		<a
+			href="https://www.linkedin.com/in/francis-wibisono/"
+			target="_blank"
+			rel="noreferrer"
+			aria-label="Open LinkedIn"
+			class="retro-icon-link p-2.5"
+		>
+			<CarbonLogoLinkedin class="h-6 w-6" />
 		</a>
-		<a href="https://www.instagram.com/fwibisono87" target="_blank" rel="noreferrer">
-			<CarbonLogoInstagram class="w-8 h-8 border-b-2 hover:border-text border-transparent" />
+		<a
+			href="https://www.instagram.com/fwibisono87"
+			target="_blank"
+			rel="noreferrer"
+			aria-label="Open Instagram"
+			class="retro-icon-link p-2.5"
+		>
+			<CarbonLogoInstagram class="h-6 w-6" />
 		</a>
 	</div>
-	<div class="flex gap-4 mx-auto">
-		<a href="/photos" rel="noreferrer">
-			<CarbonCamera class="w-8 h-8 border-b-2 hover:border-text border-transparent" />
+	<div class="flex flex-row flex-wrap gap-3 justify-center lg:justify-start">
+		<a href="/photos" rel="noreferrer" aria-label="Open photos" class="retro-icon-link p-2.5">
+			<CarbonCamera class="h-6 w-6" />
 		</a>
-		<a href="/hashtag" rel="noreferrer">
-			<CarbonHashtag class="w-8 h-8 border-b-2 hover:border-text border-transparent" />
+		<a
+			href="/hashtag"
+			rel="noreferrer"
+			aria-label="Open hashtag helper"
+			class="retro-icon-link p-2.5"
+		>
+			<CarbonHashtag class="h-6 w-6" />
 		</a>
 	</div>
 </div>

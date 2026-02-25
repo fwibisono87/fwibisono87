@@ -11,44 +11,39 @@
 	export let tech: Tech;
 
 	let showModal = false;
-	let hover = false;
 
 	const handleToggleModal = () => {
 		showModal = !showModal;
 	};
-
-	const handleMouseEnter = () => {
-		hover = true;
-	};
-	const handleMouseLeave = () => {
-		hover = false;
-	};
 </script>
 
-<div
-	class="flex-col gap-2 select-none cursor-pointer "
-	title={tech.title}
-	on:click={handleToggleModal}
-	on:keypress={handleToggleModal}
-	on:mouseenter={handleMouseEnter}
-	on:mouseleave={handleMouseLeave}
->
-	<div class="flex w-16 mx-auto h-16">
-		<img
-			src={tech.img}
-			class="w-full my-auto max-w-16 max-h-16 mx-auto sepia {hover && 'sepia-0'}"
-			alt={tech.title}
-		/>
-	</div>
+<div class="w-full">
+	<button
+		type="button"
+		class="group retro-card flex h-full min-h-[10rem] w-full flex-col items-center justify-center gap-3 px-3 py-4 text-center transition duration-200 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8fd0ff]/70"
+		title={tech.title}
+		on:click={handleToggleModal}
+		aria-label={`Open ${tech.title} details`}
+	>
+		<div class="flex h-16 w-16 items-center justify-center">
+			<img
+				src={tech.img}
+				class="mx-auto my-auto max-h-16 max-w-16 sepia transition duration-300 group-hover:sepia-0 group-focus-visible:sepia-0"
+				alt={tech.title}
+			/>
+		</div>
 
-	<span class="font-semibold">
-		{tech.title}
-	</span>
-	<Modal title={tech.title} open={showModal} on:close={() => handleToggleModal()}
+		<span class="text-sm font-semibold uppercase tracking-[0.08em] text-slate-100"
+			>{tech.title}</span
+		>
+	</button>
+	<Modal title={tech.title} open={showModal} on:close={handleToggleModal}
 		><svelte:fragment slot="body">
-			<div class="flex flex-row w-full gap-6">
-				<img src={tech.img} alt={tech.title} class="w-24 max-h-24 my-auto" />
-				<p class="text-left">
+			<div
+				class="flex flex-col items-center gap-4 text-slate-200 sm:flex-row sm:items-start sm:gap-6"
+			>
+				<img src={tech.img} alt={tech.title} class="my-auto max-h-24 w-24" />
+				<p class="text-left leading-relaxed">
 					{@html tech.desc}
 				</p>
 			</div>

@@ -24,7 +24,7 @@
 </script>
 
 <h3
-	class="text-4xl font-semibold cursor-wait animate-pulse-slow text-dove"
+	class="animate-pulse-slow cursor-wait text-xl font-semibold text-[#ffbf77] drop-shadow-[0_0_14px_rgba(255,164,81,0.35)] sm:text-4xl"
 	on:mouseover={handleBuzzwordMouseIn}
 	on:mouseleave={handleBuzzwordMouseOut}
 	on:focus={handleBuzzwordMouseIn}

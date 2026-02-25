@@ -1,30 +1,46 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
 	import { slide, fade } from 'svelte/transition';
 
 	import CarbonClose from '~icons/carbon/close';
 
 	export let open = false;
 	export let title = '';
+
+	const dispatch = createEventDispatcher();
+
+	function closeModal() {
+		dispatch('close');
+	}
 </script>
 
 {#if open}
-	<div
-		class="modal z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center p-8 lg:p-0"
-	>
-		<div class="modal-overlay fixed w-full h-full bg-gray-900 opacity-50" transition:fade />
+	<div class="modal z-50 fixed inset-0 flex items-center justify-center p-4 sm:p-8">
+		<button
+			type="button"
+			class="modal-overlay fixed inset-0 bg-[#020611]/80 backdrop-blur-sm"
+			transition:fade
+			on:click={closeModal}
+			aria-label="Close modal"
+		/>
 		<div
 			transition:slide
-			class="bg-primary w-full lg:h-max lg:w-1/2  mx-auto rounded-lg shadow-xl z-50 overflow-y-auto"
+			class="retro-frame z-50 mx-auto max-h-[85vh] w-full overflow-y-auto lg:h-max lg:w-1/2"
 		>
 			<div
-				class="flex justify-between items-center head bg-primary text-text border-b-2 border-dove py-5 px-8 text-2xl font-extrabold"
+				class="head flex items-center justify-between border-b border-[#5f86bd]/50 px-5 py-4 text-lg font-extrabold text-[#f7fbff] sm:px-8 sm:text-2xl"
 			>
 				{title}
-				<button class="">
-					<CarbonClose class="text-text" />
+				<button
+					type="button"
+					class="retro-icon-link p-2"
+					on:click={closeModal}
+					aria-label="Close modal"
+				>
+					<CarbonClose class="h-5 w-5" />
 				</button>
 			</div>
-			<div class="content p-8">
+			<div class="content p-5 sm:p-8">
 				<slot name="body" />
 			</div>
 		</div>

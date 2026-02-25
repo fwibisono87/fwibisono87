@@ -17,51 +17,55 @@
 	export let project: Project;
 </script>
 
-<li class="mb-10 last:mb-0 ml-6 text-text">
+<li class="mb-8 ml-8 text-slate-100 last:mb-0">
 	<span
-		class="flex absolute -left-3 mt-1 justify-center items-center w-6 h-6 rounded-full ring-8 ring-gunmetal bg-cadet text-text"
+		class="absolute -left-[1.05rem] top-6 flex h-8 w-8 items-center justify-center rounded-full border border-[#83bdfc]/70 bg-[#0b2f63] text-[#d9ebff] shadow-[0_0_12px_rgba(98,171,255,0.45)]"
 	>
-		<CarbonRocket class="text-text rotate-180" />
+		<CarbonRocket class="rotate-180" />
 	</span>
-	<h3 class="flex items-center mb-1 text-lg font-semibold">
-		{project.title}
-	</h3>
-	<time class="block mb-2 text-sm font-normal leading-none text-dove">{project.date}</time>
-	<p class="mb-4 text-base font-normal text-dove">
-		{project.details}
-	</p>
-	<div class="flex flex-row flex-wrap gap-2">
-		{#if project.source}
-			<a
-				title="View source of {project.title}"
-				href={project.source}
-				target="_blank"
-				rel="noreferrer"
-				class="w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-cadet text-text border-text hover:bg-gray-700 focus:ring-gray-700"
-				><CarbonView /> <span class="ml-2">View Source</span></a
+	<article class="retro-card px-4 py-4 sm:px-5 sm:py-5">
+		<div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+			<h3 class="text-base font-semibold uppercase tracking-[0.08em] text-[#f7fbff] sm:text-lg">
+				{project.title}
+			</h3>
+			<time class="retro-chip inline-flex w-fit rounded-full px-3 py-1 text-[0.62rem] leading-none"
+				>{project.date}</time
 			>
-		{:else}
-			<span
-				disabled
-				class="w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 cursor-not-allowed focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-gunmetal text-text border-text "
-				><CarbonViewOff /> <span class="ml-1">Closed Source</span></span
-			>
-		{/if}
-		{#if project.link}
-			<a
-				title="View {project.title}"
-				href={project.link}
-				target="_blank"
-				rel="noreferrer"
-				class="w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-cadet text-text border-text hover:bg-gray-700 focus:ring-gray-700"
-				><CarbonLink /> <span class="ml-1">Open Link</span></a
-			>
-		{:else}
-			<span
-				disabled
-				class="w-[8rem] inline-flex items-center py-2 px-2 text-sm font-medium rounded-lg border focus:z-10 cursor-not-allowed focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 bg-gunmetal text-text border-text "
-				><CarbonUnlink /> <span class="ml-1">Not Available</span></span
-			>
-		{/if}
-	</div>
+		</div>
+		<p class="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
+			{project.details}
+		</p>
+		<div class="mt-4 flex flex-row flex-wrap gap-2">
+			{#if project.source}
+				<a
+					title="View source of {project.title}"
+					href={project.source}
+					target="_blank"
+					rel="noreferrer"
+					class="retro-button inline-flex w-[8.5rem] items-center justify-center gap-1 px-2 py-2 text-sm font-medium focus:z-10 focus:outline-none focus:ring-2 focus:ring-[#88d3ff]/60"
+					><CarbonView /> <span>View Source</span></a
+				>
+			{:else}
+				<span
+					class="retro-button-muted inline-flex w-[8.5rem] cursor-not-allowed items-center justify-center gap-1 px-2 py-2 text-sm font-medium"
+					><CarbonViewOff /> <span>Closed Source</span></span
+				>
+			{/if}
+			{#if project.link}
+				<a
+					title="View {project.title}"
+					href={project.link}
+					target="_blank"
+					rel="noreferrer"
+					class="retro-button inline-flex w-[8.5rem] items-center justify-center gap-1 px-2 py-2 text-sm font-medium focus:z-10 focus:outline-none focus:ring-2 focus:ring-[#88d3ff]/60"
+					><CarbonLink /> <span>Open Link</span></a
+				>
+			{:else}
+				<span
+					class="retro-button-muted inline-flex w-[8.5rem] cursor-not-allowed items-center justify-center gap-1 px-2 py-2 text-sm font-medium"
+					><CarbonUnlink /> <span>Not Available</span></span
+				>
+			{/if}
+		</div>
+	</article>
 </li>
