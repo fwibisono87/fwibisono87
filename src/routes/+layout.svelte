@@ -1,24 +1,6 @@
 <script>
 	import '../app.css';
-	import * as animateScroll from 'svelte-scrollto';
-	import MajesticonsShootingStar from '~icons/majesticons/shooting-star';
-	import Footer from '../components/footer.svelte';
-	import { showSecret } from '../stores';
-
-	function handleSecret() {
-		showSecret.update((b) => !b);
-	}
-
-	let scrollY = 0;
 </script>
 
-<div>
-	<div class="min-w-screen scroll-smooth min-h-[101vh] justify-between pb-8">
-		<div class="px-12">
-			<slot />
-		</div>
-	</div>
-	<Footer />
-</div>
-
-<svelte:window bind:scrollY />
+<a class="fixed left-2 top-2 z-[100] -translate-y-[160%] bg-ink px-4 py-2.5 font-mono text-xs text-paper focus:translate-y-0" href="#main-content">Skip to main content</a>
+<slot />
