@@ -10,6 +10,14 @@ test('main document exposes its sections and project details', async ({ page }) 
 	await expect(page.getByText('■ RESTRICTED —')).toBeVisible();
 	await page.getByRole('button', { name: '← BACK TO INDEX' }).click();
 	await expect(page.getByRole('button', { name: 'Open project: MinerbaOne' })).toBeFocused();
+
+	const juniorRole = page.getByRole('button', { name: /Junior Frontend Engineer/ });
+	const currentRole = page.getByRole('button', { name: /Software Engineer/ });
+	await expect(juniorRole).toHaveAttribute('aria-expanded', 'false');
+	await expect(currentRole).toHaveAttribute('aria-expanded', 'false');
+	await currentRole.click();
+	await expect(currentRole).toHaveAttribute('aria-expanded', 'true');
+	await expect(juniorRole).toHaveAttribute('aria-expanded', 'false');
 });
 
 test('annex navigation and caption controls are keyboard-accessible', async ({ page }) => {

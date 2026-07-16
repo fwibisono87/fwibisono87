@@ -13,6 +13,7 @@
 	let isDark = false;
 	let selectedProject: number | null = null;
 	let secretOpen = false;
+	let openExperience: number | null = null;
 	let detailHeading: HTMLHeadingElement;
 
 	const projects: Project[] = [
@@ -31,11 +32,11 @@
 		['2.4', 'INFRA', 'Docker · Nginx · Keycloak · MinIO']
 	];
 	const experience = [
-		['2024 — NOW', 'Software Engineer', 'CCS, Universitas Indonesia'],
-		['2022 — 2024', 'Junior Frontend Engineer', 'Rumah Siap Kerja'],
-		['2022', 'Frontend Developer', 'bilateralstimulation.io'],
-		['2021 — 2022', 'Frontend Engineer', 'SayaKaya'],
-		['2021 — 2022', 'Teaching Assistant (OS)', 'Fasilkom, Universitas Indonesia']
+		{ years: '2024 — NOW', role: 'Software Engineer', org: 'CCS, Universitas Indonesia', description: "Currently engineering internal systems at Universitas Indonesia's Center for Computer Science.", meta: 'DEPOK, ID · FULL-TIME · 2024 — NOW' },
+		{ years: '2022 — 2024', role: 'Junior Frontend Engineer', org: 'Rumah Siap Kerja', description: 'Migrated components, libraries, and pages from Vue Options API to Nuxt 3 and the Composition API.', meta: 'JAKARTA, ID · FULL-TIME · 2 YRS' },
+		{ years: '2022', role: 'Frontend Developer', org: 'bilateralstimulation.io', description: 'Revamp animations, create presistent preferences for clients', meta: 'BERLIN, GERMANY · 4 MONTHS' },
+		{ years: '2021 — 2022', role: 'Frontend Engineer', org: 'SayaKaya', description: 'Build landing page and blog integration.', meta: 'JAKARTA, INDONESIA · 7 MONTHS' },
+		{ years: '2021 — 2022', role: 'Teaching Assistant (OS)', org: 'Fasilkom, Universitas Indonesia', description: 'Teaching Assistant for the Operating Systems course. Responsible for creating weekly quizzes and help troubleshoot student issues.', meta: 'DEPOK, WEST JAVA, INDONESIA · 1 YEAR 2 MONTHS' }
 	];
 	const interests = [
 		['A.1', 'Linux', 'Arch on the desktop, Ubuntu on servers.'],
@@ -139,7 +140,30 @@
 
 				<section id="experience" class="grid grid-cols-[240px_minmax(0,1fr)] border-b-2 border-ink dark:border-night-ink max-[920px]:grid-cols-1" aria-labelledby="experience-heading">
 					<h2 id="experience-heading" class={sectionLabel}><span class="text-accent">4.0</span><br />EXPERIENCE</h2>
-					<div>{#each experience as item}<div class="grid grid-cols-[170px_1fr_260px] items-baseline gap-3 border-b border-rule px-[clamp(16px,3vw,28px)] py-[17px] text-sm hover:bg-paper-2 dark:border-night-rule dark:hover:bg-night-2 max-[920px]:grid-cols-1 max-[920px]:gap-1"><time class="font-mono text-xs text-muted-2 dark:text-night-muted-2">{item[0]}</time><strong>{item[1]}</strong><span class="text-muted dark:text-night-muted">{item[2]}</span></div>{/each}</div>
+					<div>
+						{#each experience as item, index}
+							<div class="border-b border-rule dark:border-night-rule">
+								<button
+									class="grid min-h-[52px] w-full cursor-pointer grid-cols-[170px_minmax(0,1fr)_260px_24px] items-baseline gap-3 bg-transparent px-[clamp(16px,3vw,28px)] py-[17px] text-left text-sm text-inherit hover:bg-paper-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-accent dark:hover:bg-night-2 max-[920px]:grid-cols-[1fr_24px] max-[920px]:gap-x-3 max-[920px]:gap-y-1"
+									type="button"
+									aria-expanded={openExperience === index}
+									aria-controls={`experience-${index}`}
+									on:click={() => (openExperience = openExperience === index ? null : index)}
+								>
+									<time class="font-mono text-xs text-muted-2 dark:text-night-muted-2 max-[920px]:col-start-1">{item.years}</time>
+									<strong class="max-[920px]:col-start-1">{item.role}</strong>
+									<span class="text-muted dark:text-night-muted max-[920px]:col-start-1">{item.org}</span>
+									<span class="col-start-4 row-start-1 text-right font-mono text-accent max-[920px]:col-start-2" aria-hidden="true">{openExperience === index ? '−' : '+'}</span>
+								</button>
+								{#if openExperience === index}
+									<div id={`experience-${index}`} class="mx-[clamp(16px,3vw,28px)] mb-[17px] border-l-2 border-accent pl-4">
+										<p class="mb-3 mt-0 text-sm leading-relaxed text-muted dark:text-night-muted">{item.description}</p>
+										<p class="m-0 font-mono text-[11px] tracking-[.08em] text-muted-2 dark:text-night-muted-2">{item.meta}</p>
+									</div>
+								{/if}
+							</div>
+						{/each}
+					</div>
 				</section>
 
 				<section id="contact" class="grid grid-cols-[minmax(0,1fr)_400px] border-b-2 border-ink dark:border-night-ink max-[920px]:grid-cols-1" aria-labelledby="contact-heading">
