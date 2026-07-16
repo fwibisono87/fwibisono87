@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import DocumentHeader from '../../../components/document-header.svelte';
 	import DocumentFooter from '../../../components/document-footer.svelte';
-	import events from '../../../../static/json/events.json';
+	import events from '../../../data/events.json';
 
 	type Theme = 'auto' | 'light' | 'dark';
 	let theme: Theme = 'auto';
