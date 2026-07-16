@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test('main document exposes its sections and project details', async ({ page }) => {
+	await page.emulateMedia({ reducedMotion: 'no-preference' });
 	await page.goto('/');
 	await expect(page.getByRole('heading', { level: 1, name: 'FRANCIS WIBISONO' })).toBeVisible();
 	await expect(page.getByRole('navigation', { name: 'Primary navigation' })).toBeVisible();
@@ -20,6 +21,23 @@ test('main document exposes its sections and project details', async ({ page }) 
 	await expect(currentRole).toHaveAttribute('aria-expanded', 'true');
 	await expect(juniorRole).toHaveAttribute('aria-expanded', 'false');
 	await expect(page.locator('#experience-0')).toHaveAttribute('aria-hidden', 'false');
+
+	const panel = page.locator('#experience-0');
+	await page.waitForTimeout(100);
+	const expandingHeight = await panel.evaluate((element) => element.getBoundingClientRect().height);
+	await page.waitForTimeout(250);
+	const expandedHeight = await panel.evaluate((element) => element.getBoundingClientRect().height);
+	expect(expandingHeight).toBeGreaterThan(0);
+	expect(expandingHeight).toBeLessThan(expandedHeight);
+
+	await currentRole.click();
+	await expect(currentRole).toHaveAttribute('aria-expanded', 'false');
+	await page.waitForTimeout(100);
+	const collapsingHeight = await panel.evaluate((element) => element.getBoundingClientRect().height);
+	expect(collapsingHeight).toBeGreaterThan(0);
+	expect(collapsingHeight).toBeLessThan(expandedHeight);
+	await page.waitForTimeout(250);
+	await expect(panel).toHaveJSProperty('clientHeight', 0);
 });
 
 test('annex navigation and caption controls are keyboard-accessible', async ({ page }) => {

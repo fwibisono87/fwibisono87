@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { tick } from 'svelte';
+	import { onMount, tick } from 'svelte';
+	import { slide } from 'svelte/transition';
 	import DocumentFooter from '../components/document-footer.svelte';
 	import DocumentHeader from '../components/document-header.svelte';
 	import { capabilities, experience, interests, projects } from '../data/portfolio';
@@ -12,6 +13,7 @@
 	let secretOpen = false;
 	let openExperience: number | null = null;
 	let revealedExperienceImages = new Set<number>();
+	let reducedMotion = false;
 	let detailHeading: HTMLHeadingElement;
 
 	const eyebrow = 'font-mono text-xs tracking-[.2em] text-accent';
@@ -22,6 +24,16 @@
 	$: detail = selectedProject === null ? null : projects[selectedProject];
 	$: previousIndex = selectedProject === null ? 0 : (selectedProject + projects.length - 1) % projects.length;
 	$: nextIndex = selectedProject === null ? 0 : (selectedProject + 1) % projects.length;
+
+	onMount(() => {
+		const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+		const updateMotionPreference = () => (reducedMotion = motionPreference.matches);
+
+		updateMotionPreference();
+		motionPreference.addEventListener('change', updateMotionPreference);
+
+		return () => motionPreference.removeEventListener('change', updateMotionPreference);
+	});
 
 	async function openProject(index: number) {
 		selectedProject = index;
@@ -136,28 +148,26 @@
 									<span class="text-muted dark:text-night-muted max-[920px]:col-start-1">{item.org}</span>
 									<span class="col-start-4 row-start-1 text-right font-mono text-accent max-[920px]:col-start-2" aria-hidden="true">{openExperience === index ? '−' : '+'}</span>
 								</button>
-								<div
-									id={`experience-${index}`}
-									class={`grid overflow-hidden transition-all duration-300 ease-out motion-reduce:transition-none ${openExperience === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
-									aria-hidden={openExperience !== index}
-								>
-									<div class="min-h-0 overflow-hidden">
-										<div class="mx-[clamp(16px,3vw,28px)] mb-[17px] border-l-2 border-accent pl-4">
-											{#if item.image && revealedExperienceImages.has(index)}
-												<img
-													class="mb-4 h-auto max-h-[420px] w-auto max-w-full border border-ink object-contain dark:border-night-ink"
-													src={staticImageUrl('experience', item.image.filename)}
-													alt={item.image.alt}
-													width={item.image.width}
-													height={item.image.height}
-													loading="lazy"
-													decoding="async"
-												/>
-											{/if}
-											<p class="mb-3 mt-0 text-sm leading-relaxed text-muted dark:text-night-muted">{item.description}</p>
-											<p class="m-0 font-mono text-[11px] tracking-[.08em] text-muted-2 dark:text-night-muted-2">{item.meta}</p>
+								<div id={`experience-${index}`} aria-hidden={openExperience !== index}>
+									{#if openExperience === index}
+										<div transition:slide={{ duration: reducedMotion ? 0 : 300 }}>
+											<div class="mx-[clamp(16px,3vw,28px)] mb-[17px] border-l-2 border-accent pl-4">
+												{#if item.image && revealedExperienceImages.has(index)}
+													<img
+														class="mb-4 h-auto max-h-[420px] w-auto max-w-full border border-ink object-contain dark:border-night-ink"
+														src={staticImageUrl('experience', item.image.filename)}
+														alt={item.image.alt}
+														width={item.image.width}
+														height={item.image.height}
+														loading="lazy"
+														decoding="async"
+													/>
+												{/if}
+												<p class="mb-3 mt-0 text-sm leading-relaxed text-muted dark:text-night-muted">{item.description}</p>
+												<p class="m-0 font-mono text-[11px] tracking-[.08em] text-muted-2 dark:text-night-muted-2">{item.meta}</p>
+											</div>
 										</div>
-									</div>
+									{/if}
 								</div>
 							</div>
 						{/each}
