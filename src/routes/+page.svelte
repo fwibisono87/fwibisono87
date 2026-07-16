@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
+	import { cubicInOut } from 'svelte/easing';
 	import { slide } from 'svelte/transition';
 	import DocumentFooter from '../components/document-footer.svelte';
 	import DocumentHeader from '../components/document-header.svelte';
@@ -150,7 +151,7 @@
 								</button>
 								<div id={`experience-${index}`} aria-hidden={openExperience !== index}>
 									{#if openExperience === index}
-										<div transition:slide={{ duration: reducedMotion ? 0 : 300 }}>
+										<div transition:slide={{ duration: reducedMotion ? 0 : 480, easing: cubicInOut }}>
 											<div class="mx-[clamp(16px,3vw,28px)] mb-[17px] border-l-2 border-accent pl-4">
 												{#if item.image && revealedExperienceImages.has(index)}
 													<img

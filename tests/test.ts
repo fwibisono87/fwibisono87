@@ -23,20 +23,20 @@ test('main document exposes its sections and project details', async ({ page }) 
 	await expect(page.locator('#experience-0')).toHaveAttribute('aria-hidden', 'false');
 
 	const panel = page.locator('#experience-0');
-	await page.waitForTimeout(100);
+	await page.waitForTimeout(180);
 	const expandingHeight = await panel.evaluate((element) => element.getBoundingClientRect().height);
-	await page.waitForTimeout(250);
+	await page.waitForTimeout(340);
 	const expandedHeight = await panel.evaluate((element) => element.getBoundingClientRect().height);
 	expect(expandingHeight).toBeGreaterThan(0);
 	expect(expandingHeight).toBeLessThan(expandedHeight);
 
 	await currentRole.click();
 	await expect(currentRole).toHaveAttribute('aria-expanded', 'false');
-	await page.waitForTimeout(100);
+	await page.waitForTimeout(180);
 	const collapsingHeight = await panel.evaluate((element) => element.getBoundingClientRect().height);
 	expect(collapsingHeight).toBeGreaterThan(0);
 	expect(collapsingHeight).toBeLessThan(expandedHeight);
-	await page.waitForTimeout(250);
+	await page.waitForTimeout(340);
 	await expect(panel).toHaveJSProperty('clientHeight', 0);
 });
 
