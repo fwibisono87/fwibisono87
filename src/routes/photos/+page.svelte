@@ -15,7 +15,7 @@
 
 <svelte:head><title>Photographs — Francis Wibisono</title><meta name="description" content="Selected and edited event photography by Francis Wibisono." /></svelte:head>
 
-<div class:dark={isDark}>
+<div class:dark={isDark} class:bg-night={isDark} class:bg-paper={!isDark} class="min-h-screen">
 	<div class="mx-auto min-h-screen w-full max-w-[1760px] border-x border-ink bg-paper font-sans text-ink selection:bg-accent selection:text-white dark:border-night-ink dark:bg-night dark:text-night-ink max-[520px]:border-x-0">
 		<DocumentHeader bind:theme bind:isDark active="photos" label="ANNEX A — PHOTOGRAPHS" />
 		<main id="main-content" tabindex="-1">

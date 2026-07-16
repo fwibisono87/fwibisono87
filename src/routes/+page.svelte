@@ -72,7 +72,7 @@
 	<meta name="description" content="Francis Wibisono builds fast, precise frontend and full-stack web applications." />
 </svelte:head>
 
-<div class:dark={isDark}>
+<div class:dark={isDark} class:bg-night={isDark} class:bg-paper={!isDark} class="min-h-screen">
 	<div class="mx-auto min-h-screen w-full max-w-[1760px] border-x border-ink bg-paper font-sans text-ink selection:bg-accent selection:text-white dark:border-night-ink dark:bg-night dark:text-night-ink max-[520px]:border-x-0">
 		<DocumentHeader bind:theme bind:isDark label={detail && selectedProject !== null ? `REFERENCE DOCUMENT NO. 001 — SECTION 3.${selectedProject + 1}` : 'FRANCIS WIBISONO — REFERENCE DOCUMENT NO. 001'} />
 

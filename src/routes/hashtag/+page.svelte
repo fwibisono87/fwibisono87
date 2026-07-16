@@ -24,7 +24,7 @@
 
 <svelte:head><title>Caption Generator — Francis Wibisono</title><meta name="description" content="Generate a formatted cosplay photography caption and hashtag set." /></svelte:head>
 
-<div class:dark={isDark}>
+<div class:dark={isDark} class:bg-night={isDark} class:bg-paper={!isDark} class="min-h-screen">
 	<div class="mx-auto min-h-screen w-full max-w-[1760px] border-x border-ink bg-paper font-sans text-ink selection:bg-accent selection:text-white dark:border-night-ink dark:bg-night dark:text-night-ink max-[520px]:border-x-0">
 		<DocumentHeader bind:theme bind:isDark active="hashtag" label="ANNEX B — CAPTION GENERATOR" />
 		<main id="main-content" tabindex="-1">
