@@ -2,12 +2,9 @@
 	import { tick } from 'svelte';
 	import DocumentFooter from '../components/document-footer.svelte';
 	import DocumentHeader from '../components/document-header.svelte';
+	import { capabilities, experience, interests, projects } from '../data/portfolio';
 
 	type Theme = 'auto' | 'light' | 'dark';
-	type Project = {
-		title: string; tag: string; year: string; nda: boolean; status: string; role: string;
-		stack: string[]; desc: string; longDesc: string; figLabel: string; sourceUrl?: string; liveUrl?: string;
-	};
 
 	let theme: Theme = 'auto';
 	let isDark = false;
@@ -15,35 +12,6 @@
 	let secretOpen = false;
 	let openExperience: number | null = null;
 	let detailHeading: HTMLHeadingElement;
-
-	const projects: Project[] = [
-		{ title: 'MinerbaOne', tag: 'GOVERNMENT / NDA', year: '2024–NOW', nda: true, status: 'IN PRODUCTION', role: 'Software Engineer', stack: ['Vue', 'Nuxt', 'TypeScript', 'Tailwind'], desc: 'Management platform for the Ministry of Energy and Mineral Resources.', longDesc: 'A large-scale management application for Indonesia’s Ministry of Energy and Mineral Resources, built at the Center for Computer Science, Universitas Indonesia. I work across the frontend: complex forms, role-driven workflows, and data-heavy views.', figLabel: 'REPRESENTATIVE VIEW (SANITIZED)' },
-		{ title: 'SLCM UI', tag: 'EDUCATION / NDA', year: '2025', nda: true, status: 'IN PRODUCTION', role: 'Software Engineer', stack: ['Vue', 'Nuxt', 'TypeScript'], desc: 'Student lifecycle management for Universitas Indonesia.', longDesc: 'Student lifecycle management for Universitas Indonesia — admissions through graduation. I build frontend modules used daily by staff and students across faculties.', figLabel: 'REPRESENTATIVE VIEW (SANITIZED)' },
-		{ title: 'SIMPEL-HPE', tag: 'EDUCATION / NDA', year: '2024', nda: true, status: 'DELIVERED', role: 'Software Engineer', stack: ['Vue', 'Nuxt', 'TypeScript'], desc: 'Internal application for the Faculty of Engineering, UI.', longDesc: 'An internal application for the Faculty of Engineering, Universitas Indonesia. Scope under NDA; my role covered frontend architecture and delivery.', figLabel: 'REPRESENTATIVE VIEW (SANITIZED)' },
-		{ title: 'Matkul Tree', tag: 'OPEN SOURCE', year: '2021', nda: false, status: 'LIVE', role: 'Creator', stack: ['Nuxt', 'Vue', 'Vuetify'], desc: 'Course-dependency explorer for CS students at UI.', longDesc: 'A tool that helps computer-science students at Universitas Indonesia check course prerequisites and plan semesters. Built with Nuxt and Vuetify; still in use.', figLabel: 'PRODUCTION SCREENSHOT', sourceUrl: 'https://github.com/fwibisono87/matkul-tree', liveUrl: 'https://matkul.franciswibisono.com/' },
-		{ title: 'Sui Archive', tag: 'OPEN SOURCE', year: '2022', nda: false, status: 'LIVE', role: 'Creator', stack: ['HTML', 'CSS', 'JavaScript'], desc: 'Wiki of instructions for archiving YouTube videos and streams.', longDesc: 'A small, focused wiki documenting how to archive YouTube videos and livestreams — tooling, formats, and step-by-step instructions.', figLabel: 'PRODUCTION SCREENSHOT', sourceUrl: 'https://github.com/fwibisono87/sui-archive', liveUrl: 'https://fwibisono87.github.io/sui-archive/' },
-		{ title: 'GoPus', tag: 'COURSEWORK', year: '2021', nda: false, status: 'ARCHIVED', role: 'Creator', stack: ['Django', 'Python'], desc: 'Library management application built with Django.', longDesc: 'A library management application — cataloguing, lending, and returns — built with Django as an exercise in full-stack fundamentals.', figLabel: 'ARCHIVED SCREENSHOT', sourceUrl: 'https://github.com/fwibisono87/GoPus' }
-	];
-
-	const capabilities = [
-		['2.1', 'CORE', 'TypeScript · JavaScript · HTML / CSS'],
-		['2.2', 'FRAMEWORKS', 'Vue / Nuxt · Svelte · Tailwind'],
-		['2.3', 'BACKEND', 'Go / Fiber · Node / Elysia · Django'],
-		['2.4', 'INFRA', 'Docker · Nginx · Keycloak · MinIO']
-	];
-	const experience = [
-		{ years: '2024 — NOW', role: 'Software Engineer', org: 'CCS, Universitas Indonesia', description: "Currently engineering internal systems at Universitas Indonesia's Center for Computer Science.", meta: 'DEPOK, ID · FULL-TIME · 2024 — NOW' },
-		{ years: '2022 — 2024', role: 'Junior Frontend Engineer', org: 'Rumah Siap Kerja', description: 'Migrated components, libraries, and pages from Vue Options API to Nuxt 3 and the Composition API.', meta: 'JAKARTA, ID · FULL-TIME · 2 YRS' },
-		{ years: '2022', role: 'Frontend Developer', org: 'bilateralstimulation.io', description: 'Revamp animations, create presistent preferences for clients', meta: 'BERLIN, GERMANY · 4 MONTHS' },
-		{ years: '2021 — 2022', role: 'Frontend Engineer', org: 'SayaKaya', description: 'Build landing page and blog integration.', meta: 'JAKARTA, INDONESIA · 7 MONTHS' },
-		{ years: '2021 — 2022', role: 'Teaching Assistant (OS)', org: 'Fasilkom, Universitas Indonesia', description: 'Teaching Assistant for the Operating Systems course. Responsible for creating weekly quizzes and help troubleshoot student issues.', meta: 'DEPOK, WEST JAVA, INDONESIA · 1 YEAR 2 MONTHS' }
-	];
-	const interests = [
-		['A.1', 'Linux', 'Arch on the desktop, Ubuntu on servers.'],
-		['A.2', 'Hoshimachi Suisei', 'Origin of the original color scheme.'],
-		['A.3', 'VTubers', 'Archiving included — see Sui Archive.'],
-		['A.4', 'PC Hardware', 'Building, tuning, and benchmarking.']
-	];
 
 	const eyebrow = 'font-mono text-xs tracking-[.2em] text-accent';
 	const sectionLabel = 'm-0 border-r border-ink p-6 font-mono text-xs font-normal tracking-[.15em] dark:border-night-ink max-[920px]:border-b max-[920px]:border-r-0';
@@ -155,12 +123,18 @@
 									<span class="text-muted dark:text-night-muted max-[920px]:col-start-1">{item.org}</span>
 									<span class="col-start-4 row-start-1 text-right font-mono text-accent max-[920px]:col-start-2" aria-hidden="true">{openExperience === index ? '−' : '+'}</span>
 								</button>
-								{#if openExperience === index}
-									<div id={`experience-${index}`} class="mx-[clamp(16px,3vw,28px)] mb-[17px] border-l-2 border-accent pl-4">
-										<p class="mb-3 mt-0 text-sm leading-relaxed text-muted dark:text-night-muted">{item.description}</p>
-										<p class="m-0 font-mono text-[11px] tracking-[.08em] text-muted-2 dark:text-night-muted-2">{item.meta}</p>
+								<div
+									id={`experience-${index}`}
+									class={`grid overflow-hidden transition-all duration-300 ease-out motion-reduce:transition-none ${openExperience === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+									aria-hidden={openExperience !== index}
+								>
+									<div class="min-h-0 overflow-hidden">
+										<div class="mx-[clamp(16px,3vw,28px)] mb-[17px] border-l-2 border-accent pl-4">
+											<p class="mb-3 mt-0 text-sm leading-relaxed text-muted dark:text-night-muted">{item.description}</p>
+											<p class="m-0 font-mono text-[11px] tracking-[.08em] text-muted-2 dark:text-night-muted-2">{item.meta}</p>
+										</div>
 									</div>
-								{/if}
+								</div>
 							</div>
 						{/each}
 					</div>

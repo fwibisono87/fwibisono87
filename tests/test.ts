@@ -15,9 +15,11 @@ test('main document exposes its sections and project details', async ({ page }) 
 	const currentRole = page.getByRole('button', { name: /Software Engineer/ });
 	await expect(juniorRole).toHaveAttribute('aria-expanded', 'false');
 	await expect(currentRole).toHaveAttribute('aria-expanded', 'false');
+	await expect(page.locator('#experience-0')).toHaveAttribute('aria-hidden', 'true');
 	await currentRole.click();
 	await expect(currentRole).toHaveAttribute('aria-expanded', 'true');
 	await expect(juniorRole).toHaveAttribute('aria-expanded', 'false');
+	await expect(page.locator('#experience-0')).toHaveAttribute('aria-hidden', 'false');
 });
 
 test('annex navigation and caption controls are keyboard-accessible', async ({ page }) => {

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import DocumentFooter from '../../components/document-footer.svelte';
 	import DocumentHeader from '../../components/document-header.svelte';
-	import events from '../../data/events.json';
+	import { events } from '../../data/events';
 
 	type Theme = 'auto' | 'light' | 'dark';
 	let theme: Theme = 'auto';
