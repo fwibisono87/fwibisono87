@@ -11,6 +11,7 @@
 	let selectedProject: number | null = null;
 	let secretOpen = false;
 	let openExperience: number | null = null;
+	let revealedExperienceImages = new Set<number>();
 	let detailHeading: HTMLHeadingElement;
 
 	const eyebrow = 'font-mono text-xs tracking-[.2em] text-accent';
@@ -33,6 +34,18 @@
 		selectedProject = null;
 		await tick();
 		document.getElementById(`project-${previous}`)?.focus();
+	}
+
+	function toggleExperience(index: number) {
+		openExperience = openExperience === index ? null : index;
+
+		if (openExperience !== null && !revealedExperienceImages.has(index)) {
+			revealedExperienceImages = new Set(revealedExperienceImages).add(index);
+		}
+	}
+
+	function staticImageUrl(directory: 'experience' | 'interests', filename: string) {
+		return `/${directory}/${filename}`;
 	}
 </script>
 
@@ -116,7 +129,7 @@
 									type="button"
 									aria-expanded={openExperience === index}
 									aria-controls={`experience-${index}`}
-									on:click={() => (openExperience = openExperience === index ? null : index)}
+									on:click={() => toggleExperience(index)}
 								>
 									<time class="font-mono text-xs text-muted-2 dark:text-night-muted-2 max-[920px]:col-start-1">{item.years}</time>
 									<strong class="max-[920px]:col-start-1">{item.role}</strong>
@@ -130,6 +143,17 @@
 								>
 									<div class="min-h-0 overflow-hidden">
 										<div class="mx-[clamp(16px,3vw,28px)] mb-[17px] border-l-2 border-accent pl-4">
+											{#if item.image && revealedExperienceImages.has(index)}
+												<img
+													class="mb-4 h-auto max-h-[420px] w-auto max-w-full border border-ink object-contain dark:border-night-ink"
+													src={staticImageUrl('experience', item.image.filename)}
+													alt={item.image.alt}
+													width={item.image.width}
+													height={item.image.height}
+													loading="lazy"
+													decoding="async"
+												/>
+											{/if}
 											<p class="mb-3 mt-0 text-sm leading-relaxed text-muted dark:text-night-muted">{item.description}</p>
 											<p class="m-0 font-mono text-[11px] tracking-[.08em] text-muted-2 dark:text-night-muted-2">{item.meta}</p>
 										</div>
@@ -153,7 +177,35 @@
 					<a class="flex flex-col gap-2 p-[24px_28px] text-inherit no-underline hover:bg-ink hover:text-paper dark:hover:bg-night-ink dark:hover:text-night" href="/hashtag"><span class="font-mono text-[11px] text-accent">ANNEX B — /hashtag</span><strong class="font-heading text-lg">Caption Generator ↗</strong><small class="text-[13px] opacity-80">IG caption tool for cosplay photography posts.</small></a>
 				</section>
 
-				{#if secretOpen}<section id="appendix" class="grid grid-cols-[240px_minmax(0,1fr)] border-b-2 border-ink bg-ink text-paper dark:border-night-ink dark:bg-night-ink dark:text-night max-[920px]:grid-cols-1" aria-labelledby="appendix-heading"><h2 id="appendix-heading" class={sectionLabel}><span class="text-accent">A.0</span><br />APPENDIX</h2><div class="p-[24px_28px]"><p class={eyebrow}>■ DECLASSIFIED — OFF-DUTY INTERESTS</p><ul class="mt-[18px] grid max-w-[900px] grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4 p-0">{#each interests as interest}<li class="flex flex-col gap-1.5 border border-muted p-[18px]"><span class="font-mono text-[10px] opacity-60">{interest[0]}</span><strong class="font-heading">{interest[1]}</strong><small class="leading-normal opacity-75">{interest[2]}</small></li>{/each}</ul><p class="mt-5 font-mono text-[11px] opacity-60">COLOR SCHEME OF DOCUMENT NO. 000 INSPIRED BY HOSHIMACHI SUISEI · ICONS BY ICONES.JS</p></div></section>{/if}
+				{#if secretOpen}
+					<section id="appendix" class="grid grid-cols-[240px_minmax(0,1fr)] border-b-2 border-ink bg-ink text-paper dark:border-night-ink dark:bg-night-ink dark:text-night max-[920px]:grid-cols-1" aria-labelledby="appendix-heading">
+						<h2 id="appendix-heading" class={sectionLabel}><span class="text-accent">A.0</span><br />APPENDIX</h2>
+						<div class="p-[24px_28px]">
+							<p class={eyebrow}>■ DECLASSIFIED — OFF-DUTY INTERESTS</p>
+							<ul class="mt-[18px] grid max-w-[900px] grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4 p-0">
+								{#each interests as interest}
+									<li class="flex flex-col gap-1.5 border border-muted p-[18px]">
+										{#if interest.image}
+											<img
+												class="mb-2 h-auto max-h-[240px] w-auto max-w-full self-start object-contain"
+												src={staticImageUrl('interests', interest.image.filename)}
+												alt={interest.image.alt}
+												width={interest.image.width}
+												height={interest.image.height}
+												loading="lazy"
+												decoding="async"
+											/>
+										{/if}
+										<span class="font-mono text-[10px] opacity-60">{interest.number}</span>
+										<strong class="font-heading">{interest.name}</strong>
+										<small class="leading-normal opacity-75">{interest.note}</small>
+									</li>
+								{/each}
+							</ul>
+							<p class="mt-5 font-mono text-[11px] opacity-60">COLOR SCHEME OF DOCUMENT NO. 000 INSPIRED BY HOSHIMACHI SUISEI · ICONS BY ICONES.JS</p>
+						</div>
+					</section>
+				{/if}
 				<DocumentFooter interactive bind:expanded={secretOpen} on:click={() => (secretOpen = !secretOpen)} />
 			{/if}
 		</main>

@@ -13,22 +13,38 @@ export interface Project {
 	readonly liveUrl?: string;
 }
 
+export type StaticImageFilename = `${string}.${'avif' | 'webp'}`;
+
+export interface StaticImage {
+	readonly filename: StaticImageFilename;
+	readonly alt: string;
+	readonly width: number;
+	readonly height: number;
+}
+
 export interface Experience {
 	readonly years: string;
 	readonly role: string;
 	readonly org: string;
 	readonly description: string;
 	readonly meta: string;
+	readonly image?: StaticImage;
 }
 
 export type Capability = readonly [number: string, name: string, items: string];
-export type Interest = readonly [number: string, name: string, note: string];
+
+export interface Interest {
+	readonly number: string;
+	readonly name: string;
+	readonly note: string;
+	readonly image?: StaticImage;
+}
 
 export const projects: readonly Project[] = [
 	{
 		title: 'MinerbaOne',
 		tag: 'GOVERNMENT / NDA',
-		year: '2024–NOW',
+		year: '2024-NOW',
 		nda: true,
 		status: 'IN PRODUCTION',
 		role: 'Software Engineer',
@@ -150,8 +166,8 @@ export const experience: readonly Experience[] = [
 ];
 
 export const interests: readonly Interest[] = [
-	['A.1', 'Linux', 'Arch on the desktop, Ubuntu on servers.'],
-	['A.2', 'Hoshimachi Suisei', 'Origin of the original color scheme.'],
-	['A.3', 'VTubers', 'Archiving included — see Sui Archive.'],
-	['A.4', 'PC Hardware', 'Building, tuning, and benchmarking.']
+	{ number: 'A.1', name: 'Linux', note: 'Arch on the desktop, Ubuntu on servers.' },
+	{ number: 'A.2', name: 'Hoshimachi Suisei', note: 'Origin of the original color scheme.' },
+	{ number: 'A.3', name: 'VTubers', note: 'Archiving included — see Sui Archive.' },
+	{ number: 'A.4', name: 'PC Hardware', note: 'Building, tuning, and benchmarking.' }
 ];
