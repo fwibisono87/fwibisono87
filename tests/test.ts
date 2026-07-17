@@ -1,7 +1,21 @@
 import { expect, test } from '@playwright/test';
 
+test('auto theme follows the client color scheme and theme changes transition', async ({ page }) => {
+	await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' });
+	await page.goto('/');
+
+	await expect(page.locator('html')).toHaveClass(/dark/);
+	await expect(page.getByRole('button', { name: /Color theme: auto/i })).toBeVisible();
+	await expect(page.locator('main')).toHaveCSS('transition-duration', '0.3s');
+
+	await page.getByRole('button', { name: /Color theme: auto/i }).click();
+	await expect(page.locator('html')).not.toHaveClass(/dark/);
+	await page.getByRole('button', { name: /Color theme: light/i }).click();
+	await expect(page.locator('html')).toHaveClass(/dark/);
+});
+
 test('main document exposes its sections and project details', async ({ page }) => {
-	await page.emulateMedia({ reducedMotion: 'no-preference' });
+	await page.emulateMedia({ reducedMotion: 'reduce' });
 	await page.goto('/');
 	await expect(page.getByRole('heading', { level: 1, name: 'FRANCIS WIBISONO' })).toBeVisible();
 	await expect(page.getByRole('navigation', { name: 'Primary navigation' })).toBeVisible();

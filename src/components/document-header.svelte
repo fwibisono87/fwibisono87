@@ -7,9 +7,14 @@
 	export let isDark = false;
 
 	let mediaDark = false;
+	let isMounted = false;
 	const themes: Array<'auto' | 'light' | 'dark'> = ['auto', 'light', 'dark'];
 
 	$: isDark = theme === 'dark' || (theme === 'auto' && mediaDark);
+	$: if (isMounted) {
+		document.documentElement.classList.toggle('dark', isDark);
+		document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+	}
 
 	onMount(() => {
 		const query = window.matchMedia('(prefers-color-scheme: dark)');
@@ -17,6 +22,7 @@
 		const saved = localStorage.getItem('fw-theme');
 		if (saved === 'auto' || saved === 'light' || saved === 'dark') theme = saved;
 		updateMedia();
+		isMounted = true;
 		query.addEventListener('change', updateMedia);
 		return () => query.removeEventListener('change', updateMedia);
 	});

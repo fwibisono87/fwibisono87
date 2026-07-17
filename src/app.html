@@ -27,6 +27,16 @@
 	<meta property="twitter:description" content="I build fast, precise web applications. Currently engineering internal systems at Universitas Indonesia's Center for Computer Science.">
 	<meta property="twitter:image" content="/img/anime.webp">
 
+	<script>
+		try {
+			const storedTheme = localStorage.getItem('fw-theme');
+			const useDarkTheme = storedTheme === 'dark' || (storedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+			document.documentElement.classList.toggle('dark', useDarkTheme);
+			document.documentElement.style.colorScheme = useDarkTheme ? 'dark' : 'light';
+		} catch {
+			// Use the server-rendered light theme if browser storage is unavailable.
+		}
+	</script>
 	<script async src="https://analytics.umami.is/script.js" data-website-id="65ec2d32-d0d8-4238-a230-6b94f1e7c66a"></script>
 	%sveltekit.head%
 </head>

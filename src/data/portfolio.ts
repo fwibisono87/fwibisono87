@@ -67,7 +67,7 @@ export const projects: readonly Project[] = [
 		figLabel: 'REPRESENTATIVE VIEW (SANITIZED)'
 	},
 	{
-		title: 'SIMPEL-HPE',
+		title: 'SILABIE',
 		tag: 'EDUCATION / NDA',
 		year: '2024',
 		nda: true,
@@ -79,17 +79,42 @@ export const projects: readonly Project[] = [
 		figLabel: 'REPRESENTATIVE VIEW (SANITIZED)'
 	},
 	{
-		title: 'Matkul Tree',
+		title: 'Matkul Tree (legacy)',
 		tag: 'OPEN SOURCE',
 		year: '2021',
 		nda: false,
-		status: 'LIVE',
+		status: 'ARCHIVED',
 		role: 'Creator',
 		stack: ['Nuxt', 'Vue', 'Vuetify'],
-		desc: 'Course-dependency explorer for CS students at UI.',
-		longDesc: 'A tool that helps computer-science students at Universitas Indonesia check course prerequisites and plan semesters. Built with Nuxt and Vuetify; still in use.',
-		figLabel: 'PRODUCTION SCREENSHOT',
+		desc: 'The original course-dependency explorer for CS students at UI.',
+		longDesc: 'The original Matkul Tree helps computer-science students at Universitas Indonesia check course prerequisites and plan semesters. Built with Nuxt and Vuetify.',
+		figLabel: 'LEGACY SCREENSHOT',
+		image: {
+			filename: 'matkul-tree-preview.webp',
+			alt: 'Legacy Matkul Tree course dependency explorer',
+			width: 1280,
+			height: 1089
+		},
 		sourceUrl: 'https://github.com/fwibisono87/matkul-tree',
+		liveUrl: 'https://legacy-matkul-tree.netlify.app/'
+	},
+	{
+		title: 'Matkul Tree (K24)',
+		tag: 'OPEN SOURCE',
+		year: '2024-NOW',
+		nda: false,
+		status: 'LIVE',
+		role: 'Creator',
+		stack: ['TypeScript'],
+		desc: 'Course-planning tool for the 2024 UI CS curriculum.',
+		longDesc: 'A redesigned Matkul Tree for the 2024 curriculum, helping Universitas Indonesia computer-science students map prerequisites and plan their studies.',
+		figLabel: 'PRODUCTION SCREENSHOT',
+		image: {
+			filename: 'matkul-tree-k24-preview.webp',
+			alt: 'Matkul Tree course planner for the 2024 curriculum',
+			width: 1909,
+			height: 1046
+		},
 		liveUrl: 'https://matkul.franciswibisono.com/'
 	},
 	{
@@ -103,6 +128,12 @@ export const projects: readonly Project[] = [
 		desc: 'Wiki of instructions for archiving YouTube videos and streams.',
 		longDesc: 'A small, focused wiki documenting how to archive YouTube videos and livestreams — tooling, formats, and step-by-step instructions.',
 		figLabel: 'PRODUCTION SCREENSHOT',
+		image: {
+			filename: 'sui-archive-preview.webp',
+			alt: 'Sui Archive Guide homepage',
+			width: 1280,
+			height: 1154
+		},
 		sourceUrl: 'https://github.com/fwibisono87/sui-archive',
 		liveUrl: 'https://fwibisono87.github.io/sui-archive/'
 	},

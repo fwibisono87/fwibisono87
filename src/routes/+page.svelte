@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, tick } from 'svelte';
+	import { tick } from 'svelte';
 	import { cubicInOut } from 'svelte/easing';
 	import { slide } from 'svelte/transition';
 	import DocumentFooter from '../components/document-footer.svelte';
@@ -14,7 +14,6 @@
 	let secretOpen = false;
 	let openExperience: number | null = null;
 	let revealedExperienceImages = new Set<number>();
-	let reducedMotion = false;
 	let detailHeading: HTMLHeadingElement;
 
 	const eyebrow = 'font-mono text-xs tracking-[.2em] text-accent';
@@ -25,16 +24,6 @@
 	$: detail = selectedProject === null ? null : projects[selectedProject];
 	$: previousIndex = selectedProject === null ? 0 : (selectedProject + projects.length - 1) % projects.length;
 	$: nextIndex = selectedProject === null ? 0 : (selectedProject + 1) % projects.length;
-
-	onMount(() => {
-		const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-		const updateMotionPreference = () => (reducedMotion = motionPreference.matches);
-
-		updateMotionPreference();
-		motionPreference.addEventListener('change', updateMotionPreference);
-
-		return () => motionPreference.removeEventListener('change', updateMotionPreference);
-	});
 
 	async function openProject(index: number) {
 		selectedProject = index;
@@ -67,7 +56,7 @@
 	<meta name="description" content="Francis Wibisono builds fast, precise frontend and full-stack web applications." />
 </svelte:head>
 
-<div class:dark={isDark} class:bg-night={isDark} class:bg-paper={!isDark} class="min-h-screen">
+<div class:dark={isDark} class="min-h-screen bg-paper transition-colors duration-300 ease-in-out dark:bg-night [&_*]:transition-colors [&_*]:duration-300 [&_*]:ease-in-out">
 	<div class="mx-auto min-h-screen w-full max-w-[1760px] border-x border-ink bg-paper font-sans text-ink selection:bg-accent selection:text-white dark:border-night-ink dark:bg-night dark:text-night-ink max-[520px]:border-x-0">
 		<DocumentHeader bind:theme bind:isDark label={detail && selectedProject !== null ? `REFERENCE DOCUMENT NO. 001 — SECTION 3.${selectedProject + 1}` : 'FRANCIS WIBISONO — REFERENCE DOCUMENT NO. 001'} />
 
@@ -84,7 +73,7 @@
 							<h1 id="project-title" class="my-6 font-display text-[clamp(30px,4.5vw,52px)] font-normal leading-[1.1] focus:outline-none" tabindex="-1" bind:this={detailHeading}>{detail.title}</h1>
 							<p class="m-0 max-w-[560px] text-[clamp(16px,2vw,18px)] leading-[1.7] text-muted dark:text-night-muted">{detail.longDesc}</p>
 							{#if detail.nda}<p class="mt-9 max-w-[560px] border border-dashed border-ink p-[18px_22px] font-mono text-[13px] leading-relaxed text-muted dark:border-night-ink dark:text-night-muted"><strong class="text-accent">■ RESTRICTED —</strong> This project is under NDA. Screens and identifying details are withheld; scope and role described in general terms.</p>{/if}
-							{#if detail.sourceUrl}<div class="mt-10 flex flex-wrap"><a class={`${button} bg-ink text-paper hover:border-accent hover:bg-accent hover:text-white dark:bg-night-ink dark:text-night`} href={detail.sourceUrl}>VIEW SOURCE ↗</a>{#if detail.liveUrl}<a class={`${button} -ml-px`} href={detail.liveUrl}>OPEN LIVE ↗</a>{/if}</div>{/if}
+							{#if detail.sourceUrl || detail.liveUrl}<div class="mt-10 flex flex-wrap">{#if detail.sourceUrl}<a class={`${button} bg-ink text-paper hover:border-accent hover:bg-accent hover:text-white dark:bg-night-ink dark:text-night`} href={detail.sourceUrl}>VIEW SOURCE ↗</a>{/if}{#if detail.liveUrl}<a class={`${button} ${detail.sourceUrl ? '-ml-px' : ''}`} href={detail.liveUrl}>OPEN LIVE ↗</a>{/if}</div>{/if}
 						</div>
 						<dl class="m-0 font-mono text-[13px]">
 							<div class="flex justify-between gap-3 border-b border-rule p-[16px_22px] dark:border-night-rule"><dt class="text-muted-2 dark:text-night-muted-2">ROLE</dt><dd class="m-0">{detail.role}</dd></div>
@@ -174,7 +163,7 @@
 								</button>
 								<div id={`experience-${index}`} aria-hidden={openExperience !== index}>
 									{#if openExperience === index}
-										<div transition:slide={{ duration: reducedMotion ? 0 : 480, easing: cubicInOut }}>
+										<div transition:slide={{ duration: 300, easing: cubicInOut }}>
 											<div class="mx-[clamp(16px,3vw,28px)] mb-[17px] border-l-2 border-accent pl-4">
 												{#if item.image && revealedExperienceImages.has(index)}
 													<img
