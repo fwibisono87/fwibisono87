@@ -57,7 +57,7 @@
 		}
 	}
 
-	function staticImageUrl(directory: 'experience' | 'interests', filename: string) {
+	function staticImageUrl(directory: 'experience' | 'interests' | 'projects', filename: string) {
 		return `/${directory}/${filename}`;
 	}
 </script>
@@ -95,7 +95,18 @@
 					</div>
 					<figure class="m-0 border-b-2 border-ink px-[clamp(20px,4vw,56px)] py-12 dark:border-night-ink">
 						<figcaption class="mb-4 font-mono text-[11px] text-muted-2 dark:text-night-muted-2">FIG. {selectedProject + 2} — {detail.figLabel}</figcaption>
-						<div class={`${imagePattern} h-[clamp(280px,45vw,560px)] border border-ink dark:border-night-ink`} role="img" aria-label={detail.nda ? 'sanitized or representative screenshot' : 'full-width screenshot'}></div>
+						{#if detail.image}
+							<img
+								class="h-auto max-h-[560px] w-full border border-ink object-contain dark:border-night-ink"
+								src={staticImageUrl('projects', detail.image.filename)}
+								alt={detail.image.alt}
+								width={detail.image.width}
+								height={detail.image.height}
+								decoding="async"
+							/>
+						{:else}
+							<div class={`${imagePattern} h-[clamp(280px,45vw,560px)] border border-ink dark:border-night-ink`} role="img" aria-label={detail.nda ? 'sanitized or representative screenshot' : 'full-width screenshot'}></div>
+						{/if}
 					</figure>
 					<nav class="flex border-b-2 border-ink font-mono text-[13px] dark:border-night-ink max-[600px]:flex-col" aria-label="Project navigation">
 						<button class="flex-1 border-r border-ink bg-transparent px-[clamp(20px,4vw,56px)] py-[22px] text-left hover:bg-ink hover:text-paper dark:border-night-ink dark:hover:bg-night-ink dark:hover:text-night max-[600px]:border-b max-[600px]:border-r-0" type="button" on:click={() => openProject(previousIndex)}>← PREV: {projects[previousIndex].title}</button>
@@ -125,7 +136,19 @@
 					<div class="grid grid-cols-[repeat(auto-fill,minmax(290px,1fr))] px-[clamp(20px,4vw,56px)] pb-14 pt-8 max-[600px]:grid-cols-1">
 						{#each projects as project, index}
 							<button id={`project-${index}`} class="group relative -m-px flex flex-col border border-ink bg-paper p-0 text-left text-ink hover:z-10 hover:bg-ink hover:text-paper focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent dark:border-night-ink dark:bg-night dark:text-night-ink dark:hover:bg-night-ink dark:hover:text-night" type="button" on:click={() => openProject(index)} aria-label={`Open project: ${project.title}`}>
-								<span class={`${imagePattern} block h-[180px] w-full border-b border-ink dark:border-night-ink`} role="img" aria-label={project.nda ? 'sanitized screenshot' : 'screenshot'}></span>
+								{#if project.image}
+									<img
+										class="block h-[180px] w-full border-b border-ink object-cover object-top dark:border-night-ink"
+										src={staticImageUrl('projects', project.image.filename)}
+										alt={project.image.alt}
+										width={project.image.width}
+										height={project.image.height}
+										loading="lazy"
+										decoding="async"
+									/>
+								{:else}
+									<span class={`${imagePattern} block h-[180px] w-full border-b border-ink dark:border-night-ink`} role="img" aria-label={project.nda ? 'sanitized screenshot' : 'screenshot'}></span>
+								{/if}
 								<span class="relative flex flex-1 flex-col p-[18px_20px_20px]"><span class="mb-[7px] font-mono text-[11px] text-accent">3.{index + 1} — {project.tag}</span><span class="flex items-baseline justify-between gap-3"><strong class="font-heading text-[19px]">{project.title}</strong><small class="font-mono text-[11px] opacity-[.65]">{project.year}</small></span><span class="mt-[7px] text-[13px] leading-[1.55] opacity-[.85]">{project.desc}</span>{#if project.nda}<span class="absolute -top-[170px] right-2.5 bg-accent px-2.5 py-1 font-mono text-[10px] tracking-[.12em] text-white">RESTRICTED</span>{/if}</span>
 							</button>
 						{/each}

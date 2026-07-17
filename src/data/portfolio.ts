@@ -9,6 +9,7 @@ export interface Project {
 	readonly desc: string;
 	readonly longDesc: string;
 	readonly figLabel: string;
+	readonly image?: StaticImage;
 	readonly sourceUrl?: string;
 	readonly liveUrl?: string;
 }
@@ -107,16 +108,23 @@ export const projects: readonly Project[] = [
 	},
 	{
 		title: 'GoPus',
-		tag: 'COURSEWORK',
+		tag: 'COMMERCIAL / OPEN SOURCE',
 		year: '2021',
 		nda: false,
-		status: 'ARCHIVED',
-		role: 'Creator',
+		status: 'ARCHIVED DEMO',
+		role: 'Implementor',
 		stack: ['Django', 'Python'],
 		desc: 'Library management application built with Django.',
 		longDesc: 'A library management application — cataloguing, lending, and returns — built with Django as an exercise in full-stack fundamentals.',
 		figLabel: 'ARCHIVED SCREENSHOT',
-		sourceUrl: 'https://github.com/fwibisono87/GoPus'
+		image: {
+			filename: 'gopus-catalog-preview.webp',
+			alt: 'GoPus book catalogue page',
+			width: 1280,
+			height: 851
+		},
+		sourceUrl: 'https://github.com/fwibisono87/GoPus',
+		liveUrl: 'https://gopus.irys.franciswibisono.com/'
 	}
 ];
 
