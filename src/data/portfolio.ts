@@ -68,15 +68,21 @@ export const projects: readonly Project[] = [
 	},
 	{
 		title: 'SILABIE',
-		tag: 'EDUCATION / NDA',
+		tag: 'EDUCATION / CLOSED SOURCE',
 		year: '2024',
 		nda: true,
 		status: 'DELIVERED',
 		role: 'Software Engineer',
 		stack: ['Vue', 'Nuxt', 'TypeScript'],
 		desc: 'Internal application for the Faculty of Engineering, UI.',
-		longDesc: 'An internal application for the Faculty of Engineering, Universitas Indonesia. Scope under NDA; my role covered frontend architecture and delivery.',
-		figLabel: 'REPRESENTATIVE VIEW (SANITIZED)'
+		longDesc: 'An internal application for the Faculty of Engineering, Universitas Indonesia, used to order equipment rentals and experimentation bookings. ',
+		figLabel: 'REPRESENTATIVE VIEW (SANITIZED)',
+		image: {
+			filename: 'silabie-preview.webp',
+			alt: 'SILABIE application interface',
+			width: 1914,
+			height: 1166
+		}
 	},
 	{
 		title: 'Matkul Tree (legacy)',
