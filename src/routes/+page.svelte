@@ -176,8 +176,15 @@
 														decoding="async"
 													/>
 												{/if}
-												<p class="mb-3 mt-0 text-sm leading-relaxed text-muted dark:text-night-muted">{item.description}</p>
-												<p class="m-0 font-mono text-[11px] tracking-[.08em] text-muted-2 dark:text-night-muted-2">{item.meta}</p>
+											<p class="mb-3 mt-0 text-sm leading-relaxed text-muted dark:text-night-muted">{item.description}</p>
+											{#if item.bullets}
+												<ul class="mb-3 flex list-none flex-col gap-2 p-0 text-sm leading-relaxed text-muted dark:text-night-muted">
+													{#each item.bullets as bullet}
+														<li class="flex gap-2.5"><span class="shrink-0 text-accent" aria-hidden="true">■</span><span>{bullet}</span></li>
+													{/each}
+												</ul>
+											{/if}
+											<p class="m-0 font-mono text-[11px] tracking-[.08em] text-muted-2 dark:text-night-muted-2">{item.meta}</p>
 											</div>
 										</div>
 									{/if}
@@ -194,11 +201,12 @@
 					<figure class="m-0 flex min-h-[320px] flex-col"><div class={`${imagePattern} min-h-[280px] flex-1`} role="img" aria-label="real photo — bottom of page"></div><figcaption class="flex justify-between border-t border-ink px-4 py-3 font-mono text-[11px] text-muted dark:border-night-ink dark:text-night-muted"><span>PORTRAIT B/2</span><span>PHOTOGRAPH</span></figcaption></figure>
 				</section>
 
-				<section class="grid grid-cols-[240px_1fr_1fr] border-b-2 border-ink dark:border-night-ink max-[920px]:grid-cols-2 max-[600px]:grid-cols-1" aria-labelledby="annex-heading">
-					<h2 id="annex-heading" class={`${sectionLabel} max-[920px]:col-span-full`}><span class="text-accent">6.0</span><br />ANNEXES</h2>
-					<a class="flex flex-col gap-2 border-r border-ink p-[24px_28px] text-inherit no-underline hover:bg-ink hover:text-paper dark:border-night-ink dark:hover:bg-night-ink dark:hover:text-night" href="/photos"><span class="font-mono text-[11px] text-accent">ANNEX A — /photos</span><strong class="font-heading text-lg">Photographs ↗</strong><small class="text-[13px] opacity-80">Event photography — selected and edited records.</small></a>
-					<a class="flex flex-col gap-2 p-[24px_28px] text-inherit no-underline hover:bg-ink hover:text-paper dark:hover:bg-night-ink dark:hover:text-night" href="/hashtag"><span class="font-mono text-[11px] text-accent">ANNEX B — /hashtag</span><strong class="font-heading text-lg">Caption Generator ↗</strong><small class="text-[13px] opacity-80">IG caption tool for cosplay photography posts.</small></a>
-				</section>
+			<section class="grid grid-cols-[240px_1fr_1fr_1fr] border-b-2 border-ink dark:border-night-ink max-[920px]:grid-cols-2 max-[600px]:grid-cols-1" aria-labelledby="annex-heading">
+				<h2 id="annex-heading" class={`${sectionLabel} max-[920px]:col-span-full`}><span class="text-accent">6.0</span><br />ANNEXES</h2>
+				<a class="flex flex-col gap-2 border-r border-ink p-[24px_28px] text-inherit no-underline hover:bg-ink hover:text-paper dark:border-night-ink dark:hover:bg-night-ink dark:hover:text-night" href="/photos"><span class="font-mono text-[11px] text-accent">ANNEX A — /photos</span><strong class="font-heading text-lg">Photographs ↗</strong><small class="text-[13px] opacity-80">Event photography — selected and edited records.</small></a>
+				<a class="flex flex-col gap-2 border-r border-ink p-[24px_28px] text-inherit no-underline hover:bg-ink hover:text-paper dark:border-night-ink dark:hover:bg-night-ink dark:hover:text-night" href="/hashtag"><span class="font-mono text-[11px] text-accent">ANNEX B — /hashtag</span><strong class="font-heading text-lg">Caption Generator ↗</strong><small class="text-[13px] opacity-80">IG caption tool for cosplay photography posts.</small></a>
+				<a class="flex flex-col gap-2 p-[24px_28px] text-inherit no-underline hover:bg-ink hover:text-paper dark:hover:bg-night-ink dark:hover:text-night" href="https://blog.franciswibisono.com" target="_blank" rel="noopener noreferrer"><span class="font-mono text-[11px] text-accent">ANNEX C — /blog</span><strong class="font-heading text-lg">Blog ↗</strong><small class="text-[13px] opacity-80">Writing on code, tech, and things I find interesting.</small></a>
+			</section>
 
 				{#if secretOpen}
 					<section id="appendix" class="grid grid-cols-[240px_minmax(0,1fr)] border-b-2 border-ink bg-ink text-paper dark:border-night-ink dark:bg-night-ink dark:text-night max-[920px]:grid-cols-1" aria-labelledby="appendix-heading">

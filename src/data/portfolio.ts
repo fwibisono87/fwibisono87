@@ -28,6 +28,7 @@ export interface Experience {
 	readonly role: string;
 	readonly org: string;
 	readonly description: string;
+	readonly bullets?: readonly string[];
 	readonly meta: string;
 	readonly image?: StaticImage;
 }
@@ -175,31 +176,62 @@ export const capabilities: readonly Capability[] = [
 export const experience: readonly Experience[] = [
 	{
 		years: '2024 — NOW',
-		role: 'Software Engineer',
-		org: 'CCS, Universitas Indonesia',
-		description: "Currently engineering internal systems at Universitas Indonesia's Center for Computer Science.",
-		meta: 'DEPOK, ID · FULL-TIME · 2024 — NOW'
+		role: 'Software Engineer (Programmer Staff)',
+		org: 'Pusilkom, Universitas Indonesia',
+		description: 'The academic venture and IT-consultancy arm of the Faculty of Computer Science, Universitas Indonesia, building software, data, and systems for Indonesian government agencies and enterprises since 1972.',
+		bullets: [
+			'Built a secure full-stack document-processing and review system using Nuxt/Vue, TypeScript, Python/Flask, Redis, Elasticsearch, object storage, OIDC SSO, Docker, and local LLM services. Focused on secure intake, semantic retrieval, human-in-the-loop review, export generation, testing, and deployment automation.',
+			"Architected a dynamic Form Generator (Vue 3, TypeScript, Vuetify) for MinerbaOne, a government platform used by Indonesia's Directorate-General for Minerals and Coal. The system generates arbitrary form types with domain-specific auto-calculations, functioning as a purpose-built alternative to Google Forms for mining regulation workflows.",
+			'Developed a Document Generator microservice (Node.js) that programmatically populates Word templates from JSON data, replacing a manual process where government staff typed 100+ page documents by hand, reducing weeks of preparation time per document cycle.',
+			'Pioneered TypeScript adoption and the frontend Repository Pattern across the MinerbaOne codebase, establishing standards the wider team adopted. Conducted code reviews and mentored junior developers on these patterns, reducing bugs and enabling faster IDE-assisted development.',
+			"Designed the frontend architecture for the university's Student Lifecycle Management system, introducing Vue Query, i18n, Pinia, and shared tooling that improved maintainability and accelerated feature development for the team.",
+			'Implemented API endpoints in Go/Fiber for the SLCM project and contributed backend features in PHP/Laravel, including Keycloak SSO authentication that unified login across frontend and backend services.'
+		],
+		meta: 'DEPOK, ID · FULL-TIME · SEP 2024 — NOW'
 	},
 	{
 		years: '2022 — 2024',
-		role: 'Junior Frontend Engineer',
+		role: 'Frontend Developer',
 		org: 'Rumah Siap Kerja',
-		description: 'Migrated components, libraries, and pages from Vue Options API to Nuxt 3 and the Composition API.',
-		meta: 'JAKARTA, ID · FULL-TIME · 2 YRS'
+		description: "An Indonesian edtech platform and official training provider for Prakerja, the government's national pre-employment skilling programme, serving tens of thousands of learners.",
+		bullets: [
+			'Led the migration of the company homepage and three landing pages from Vue 2 to Nuxt/Vue 3, achieving ~300ms First Contentful Paint on a platform serving tens of thousands of users; tracked Core Web Vitals with Lighthouse and monitored production errors and performance with Sentry.',
+			'Optimized frontend data fetching and API usage patterns, reducing query times by approximately 50%.',
+			'Drove standardization across the frontend codebase by introducing TypeScript, Composition API, TanStack Query, Storybook, and consistent Tailwind/SCSS patterns, improving developer velocity and component maintainability after the migration period, based on existing and new designs from Figma.',
+			'Led a Vue-to-React migration to improve performance and align with the product roadmap, establishing TypeScript conventions and best practices for the new React codebase.'
+		],
+		meta: 'JAKARTA, ID · FULL-TIME · OCT 2022 — OCT 2024'
 	},
 	{
 		years: '2022',
-		role: 'Frontend Developer',
+		role: 'Frontend Engineer Intern',
 		org: 'bilateralstimulation.io',
-		description: 'Revamp animations, create presistent preferences for clients',
-		meta: 'BERLIN, GERMANY · 4 MONTHS'
+		description: "A Berlin-based startup building an online tool for EMDR (Eye Movement Desensitization and Reprocessing) therapy, since grown into the world's largest online EMDR platform used by tens of thousands of therapists worldwide.",
+		bullets: [
+			'Built the client-facing UI in SvelteKit and Tailwind CSS, translating Figma designs into production code.',
+			"Built the company's first automated client-onboarding pipeline (Stripe payments, Twilio welcome emails) and a Redis-backed system for saving and reloading therapist session configurations."
+		],
+		meta: 'BERLIN, GERMANY · INTERNSHIP · JUN — SEP 2022'
 	},
 	{
 		years: '2021 — 2022',
-		role: 'Frontend Engineer',
-		org: 'SayaKaya',
-		description: 'Build landing page and blog integration.',
-		meta: 'JAKARTA, INDONESIA · 7 MONTHS'
+		role: 'Frontend Engineer Intern',
+		org: 'sayakaya.id',
+		description: 'An Indonesian fintech app for retail mutual-fund investing, focused on financial literacy for first-time investors.',
+		bullets: [
+			"Built the company's landing page, investment calculator, career pages, and a headless-WordPress blog (Svelte frontend consuming the WordPress REST API) in SvelteKit."
+		],
+		meta: 'JAKARTA, ID · INTERNSHIP · DEC 2021 — JUN 2022'
+	},
+	{
+		years: '2021 — 2022',
+		role: 'Frontend Engineer Intern',
+		org: 'MyRobin Indonesia',
+		description: "Indonesia's largest on-demand blue-collar staffing platform, connecting enterprises with pre-screened frontline workers across B2B and worker-facing apps (later acquired by BetterPlace).",
+		bullets: [
+			'Delivered features across the B2B staffing app and a worker-facing B2C app in Vuetify/Nuxt.js, including a community feed with photo posts, and rebuilt the next-generation app from scratch in Tailwind CSS/Nuxt.js.'
+		],
+		meta: 'JAKARTA, ID · INTERNSHIP · MAY — DEC 2021'
 	},
 	{
 		years: '2021 — 2022',

@@ -26,14 +26,14 @@ test('main document exposes its sections and project details', async ({ page }) 
 	await page.getByRole('button', { name: '← BACK TO INDEX' }).click();
 	await expect(page.getByRole('button', { name: 'Open project: MinerbaOne' })).toBeFocused();
 
-	const juniorRole = page.getByRole('button', { name: /Junior Frontend Engineer/ });
+	const frontendRole = page.getByRole('button', { name: /Frontend Developer/ });
 	const currentRole = page.getByRole('button', { name: /Software Engineer/ });
-	await expect(juniorRole).toHaveAttribute('aria-expanded', 'false');
+	await expect(frontendRole).toHaveAttribute('aria-expanded', 'false');
 	await expect(currentRole).toHaveAttribute('aria-expanded', 'false');
 	await expect(page.locator('#experience-0')).toHaveAttribute('aria-hidden', 'true');
 	await currentRole.click();
 	await expect(currentRole).toHaveAttribute('aria-expanded', 'true');
-	await expect(juniorRole).toHaveAttribute('aria-expanded', 'false');
+	await expect(frontendRole).toHaveAttribute('aria-expanded', 'false');
 	await expect(page.locator('#experience-0')).toHaveAttribute('aria-hidden', 'false');
 
 	const panel = page.locator('#experience-0');
