@@ -1,0 +1,51 @@
+export interface PhotoEvent {
+	readonly eventName: string;
+	readonly location: string;
+	readonly date: string;
+	readonly slug: string;
+}
+
+export const events: readonly PhotoEvent[] = [
+	{
+		eventName: 'Gelar Jepang UI 2023',
+		location: 'Universitas Indonesia, Depok',
+		date: '11, 12, 13 August 2023',
+		slug: 'gjui'
+	},
+	{
+		eventName: 'Astral Express Photo Session',
+		location: 'Eternity Costudio, Kedoya, Jakarta',
+		date: '5 August 2023',
+		slug: 'astral-express'
+	},
+	{
+		eventName: 'Impactnation 2023',
+		location: 'Istora Senayan, Jakarta',
+		date: '29-30 July 2023',
+		slug: 'impactnation'
+	},
+	{
+		eventName: 'Kompas Fest 2023',
+		location: 'Senayan Park, Jakarta',
+		date: '18 July 2023',
+		slug: 'kompas'
+	},
+	{
+		eventName: 'Mukashi Festival',
+		location: 'Senayan Park, Jakarta',
+		date: '4 June 2023',
+		slug: 'mukashi'
+	},
+	{
+		eventName: 'Neo Soho Toy Festival',
+		location: 'Neo Soho Mall, Jakarta',
+		date: '28 May 2023',
+		slug: 'neo-soho-toy'
+	},
+	{
+		eventName: 'Comic Frontier 16',
+		location: 'Indonesia Convention Center, BSD',
+		date: '6-7 May 2023',
+		slug: 'cf-16'
+	}
+];
