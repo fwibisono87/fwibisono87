@@ -53,7 +53,13 @@ export const projects: readonly Project[] = [
 		stack: ['Vue', 'Nuxt', 'TypeScript', 'Tailwind'],
 		desc: 'Management platform for the Ministry of Energy and Mineral Resources.',
 		longDesc: 'A large-scale management application for Indonesia’s Ministry of Energy and Mineral Resources, built at the Center for Computer Science, Universitas Indonesia. I work across the frontend: complex forms, role-driven workflows, and data-heavy views.',
-		figLabel: 'REPRESENTATIVE VIEW (SANITIZED)'
+		figLabel: 'REPRESENTATIVE VIEW (SANITIZED)',
+		image: {
+			filename: 'minerbaone-preview.webp',
+			alt: 'MinerbaOne application interface',
+			width: 1906,
+			height: 927
+		}
 	},
 	{
 		title: 'SLCM UI',
@@ -65,19 +71,25 @@ export const projects: readonly Project[] = [
 		stack: ['Vue', 'Nuxt', 'TypeScript'],
 		desc: 'Student lifecycle management for Universitas Indonesia.',
 		longDesc: 'Student lifecycle management for Universitas Indonesia — admissions through graduation. I build frontend modules used daily by staff and students across faculties.',
-		figLabel: 'REPRESENTATIVE VIEW (SANITIZED)'
+		figLabel: 'REPRESENTATIVE VIEW (SANITIZED)',
+		image: {
+			filename: 'slcm-preview.webp',
+			alt: 'SLCM application interface',
+			width: 1912,
+			height: 1013
+		}
 	},
 	{
 		title: 'SILABIE',
-		tag: 'EDUCATION / CLOSED SOURCE',
+		tag: 'EDUCATION / COMMERCIAL',
 		year: '2024',
-		nda: true,
+		nda: false,
 		status: 'DELIVERED',
 		role: 'Software Engineer',
 		stack: ['Vue', 'Nuxt', 'TypeScript'],
 		desc: 'Internal application for the Faculty of Engineering, UI.',
 		longDesc: 'An internal application for the Faculty of Engineering, Universitas Indonesia, used to order equipment rentals and experimentation bookings. ',
-		figLabel: 'REPRESENTATIVE VIEW (SANITIZED)',
+		figLabel: 'REPRESENTATIVE VIEW',
 		image: {
 			filename: 'silabie-preview.webp',
 			alt: 'SILABIE application interface',
