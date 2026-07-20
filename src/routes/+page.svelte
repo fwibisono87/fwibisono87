@@ -120,7 +120,7 @@
 					{#each capabilities as capability}<div class="border-r border-ink p-6 text-sm leading-[1.8] hover:bg-paper-2 dark:border-night-ink dark:hover:bg-night-2"><p class="mb-2 mt-0 font-mono text-[11px] text-muted-2 dark:text-night-muted-2">{capability[0]} {capability[1]}</p><span>{capability[2]}</span></div>{/each}
 				</section>
 
-				<section id="work" class="border-b-2 border-ink dark:border-night-ink" aria-labelledby="work-heading">
+				<section id="work" class="scroll-mt-[70px] border-b-2 border-ink dark:border-night-ink" aria-labelledby="work-heading">
 					<div class="flex items-baseline justify-between gap-3 px-[clamp(20px,4vw,56px)] pt-10"><h2 id="work-heading" class="m-0 font-display text-[clamp(22px,3vw,30px)] font-normal">SELECTED WORK</h2><span class="font-mono text-xs text-accent">3.0 — {String(projects.length).padStart(2, '0')} ENTRIES</span></div>
 					<div class="grid grid-cols-[repeat(auto-fill,minmax(290px,1fr))] px-[clamp(20px,4vw,56px)] pb-14 pt-8 max-[600px]:grid-cols-1">
 						{#each projects as project, index}
@@ -144,7 +144,7 @@
 					</div>
 				</section>
 
-				<section id="experience" class="grid grid-cols-[240px_minmax(0,1fr)] border-b-2 border-ink dark:border-night-ink max-[920px]:grid-cols-1" aria-labelledby="experience-heading">
+				<section id="experience" class="grid scroll-mt-[70px] grid-cols-[240px_minmax(0,1fr)] border-b-2 border-ink dark:border-night-ink max-[920px]:grid-cols-1" aria-labelledby="experience-heading">
 					<h2 id="experience-heading" class={sectionLabel}><span class="text-accent">4.0</span><br />EXPERIENCE</h2>
 					<div>
 						{#each experience as item, index}
@@ -194,7 +194,7 @@
 					</div>
 				</section>
 
-				<section id="contact" class="grid grid-cols-[minmax(0,1fr)_400px] border-b-2 border-ink dark:border-night-ink max-[920px]:grid-cols-1" aria-labelledby="contact-heading">
+				<section id="contact" class="grid scroll-mt-[70px] grid-cols-[minmax(0,1fr)_400px] border-b-2 border-ink dark:border-night-ink max-[920px]:grid-cols-1" aria-labelledby="contact-heading">
 					<div class="border-r border-ink px-[clamp(20px,4vw,56px)] py-[clamp(36px,5vw,64px)] dark:border-night-ink max-[920px]:border-b max-[920px]:border-r-0"><p class={eyebrow}>5.0 — CONTACT</p><h2 id="contact-heading" class="my-5 font-display text-[clamp(24px,3.5vw,34px)] font-normal">GET IN TOUCH</h2><p class="mb-9 max-w-[460px] leading-relaxed text-muted dark:text-night-muted">Open to interesting frontend and full-stack work. The fastest channel is email.</p>
 						<div class="flex max-w-[480px] flex-col font-mono text-[clamp(12px,1.5vw,14px)]">{#each [['EMAIL','code@franciswibisono.com','mailto:code@franciswibisono.com'],['GITHUB','fwibisono87','https://www.github.com/fwibisono87'],['LINKEDIN','francis-wibisono','https://www.linkedin.com/in/francis-wibisono/'],['INSTAGRAM','@fwibisono87','https://www.instagram.com/fwibisono87']] as contact}<a class="-mt-px flex justify-between gap-2.5 border border-ink px-[18px] py-[13px] text-inherit no-underline hover:bg-ink hover:text-paper dark:border-night-ink dark:hover:bg-night-ink dark:hover:text-night" href={contact[2]}><span>{contact[0]}</span><span>{contact[1]}</span></a>{/each}</div>
 					</div>
